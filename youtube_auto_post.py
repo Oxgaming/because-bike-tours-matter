@@ -18,17 +18,17 @@ AUTO_CATEGORIES = "comm,newv"
 CHANNELS = [
     {
         "id": "UC4KiQZITzjlpxZ2B8ERRP1A",
-        "name": "Train Gamer hat ein neues Video",
+        "name": "Train Gamer",
         "endtext": "Schaut unbedingt rein und lasst Feedback da!"
     },
     {
         "id": "UCOarPgCe5BM0Nw8l4sEP1A",
-        "name": "OX-Gaming hat ein neues Video",
+        "name": "OX-Gaming",
         "endtext": "Dieses Video solltet ihr nicht verpassen!"
     },
     {
         "id": "UCwU5oERCBunenjDsAMDikqQ",
-        "name": "Urban Games hat einen neuen Trailer",
+        "name": "Urban Games",
         "endtext": "Viel Spaß beim Anschauen!"
     }
 ]
@@ -72,7 +72,7 @@ def check_channel(channel):
     <img src="{thumbnail}" alt="{channel['name']}">
     <h2>Neues Video von {channel['name']}!</h2>
     <p>
-        {channel['name']} „{title}“ hochgeladen!
+        {channel['name']} hat ein neues Video: „{title}“ hochgeladen!
         <a href="{link}" target="_blank">Hier ansehen</a>.
         {channel['endtext']}
     </p>
@@ -92,3 +92,4 @@ def check_channel(channel):
 if __name__ == "__main__":
     for channel in CHANNELS:
         check_channel(channel)
+
