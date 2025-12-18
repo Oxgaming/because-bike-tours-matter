@@ -2,11 +2,11 @@ import os
 import feedparser
 from datetime import datetime
 
-# BASE_DIR ist der Pfad zum Function-Container
+# Alles liegt im Hauptordner
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# HTML-Datei liegt eine Ebene höher in website/
-HTML_FILE = os.path.join(BASE_DIR, "..", "website", "labor.html")
+# HTML-Datei im gleichen Ordner
+HTML_FILE = os.path.join(BASE_DIR, "labor.html")
 MARKER = "<!-- POST-EINFÜGEN -->"
 
 # Ordner für letzte Videos
@@ -22,7 +22,7 @@ CHANNELS = [
         "endtext": "Schaut unbedingt rein und lasst Feedback da!"
     },
     {
-        "id": "UCOarPgCe5BM0Nw8sEP1uA",
+        "id": "UCOarPgCe5BM0Nw8l4sEP1A",
         "name": "OX-Gaming hat ein neues Video",
         "endtext": "Dieses Video solltet ihr nicht verpassen!"
     },
@@ -89,10 +89,6 @@ def check_channel(channel):
 
     print(f"[+] Neuer Post für {channel['name']}")
 
-def handler(event, context):
+if __name__ == "__main__":
     for channel in CHANNELS:
         check_channel(channel)
-    return {
-        "statusCode": 200,
-        "body": "YouTube Auto-Post ausgeführt."
-    }
