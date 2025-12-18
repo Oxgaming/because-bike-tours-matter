@@ -8,8 +8,10 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Repository auschecken
+        uses: actions/checkout@v3
 
       - name: Python einrichten
         uses: actions/setup-python@v4
@@ -22,10 +24,10 @@ jobs:
       - name: YouTube Posts generieren
         run: python youtube_auto_post.py
 
-       - name: Änderungen pushen
+      - name: Änderungen committen & pushen
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add labor.html last_videos || true
-          git commit -m "Automatischer YouTube Post" || echo "Keine Änderungen"
+          git config --global user.name "OX-Gaming"
+          git config --global user.email "ox.gaming8918@gmail.com"
+          git add labor.html last_videos
+          git commit -m "Automatischer YouTube Post" || echo "Nichts zu committen"
           git push
