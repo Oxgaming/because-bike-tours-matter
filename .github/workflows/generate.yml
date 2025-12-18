@@ -22,10 +22,10 @@ jobs:
       - name: YouTube Posts generieren
         run: python youtube_auto_post.py
 
-      - name: Änderungen pushen
+       - name: Änderungen pushen
         run: |
-          git config --global user.name "OX-Gaming"
-          git config --global user.email "ox.gaming8918@gmail.com"
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
           git add labor.html last_videos || true
           git commit -m "Automatischer YouTube Post" || echo "Keine Änderungen"
           git push
