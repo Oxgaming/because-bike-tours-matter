@@ -65,7 +65,7 @@ body {
 
 a {
 	font-decoration: underline;
-	font-color: rgb(50, 50, 50);
+	color: rgb(50, 50, 50);
 }
 
 body.dark-mode {
@@ -402,4 +402,5 @@ h1 {
     }
 
 }
+
 
