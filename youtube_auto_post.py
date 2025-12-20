@@ -21,6 +21,11 @@ CHANNELS = [
         "name": "Train Gamer",
         "endtext": "Schaut unbedingt rein und lasst Feedback da!"
     },
+      {
+        "id": "UCtnC0_HCVfW7kyRTAlkTR0g",
+        "name": "BroCastOnic",
+        "endtext": "Schaut gerne bei ihm vorbei!"
+    },
     {
         "id": "UCOarPgCe5BM0Nw8l4sEP1A",
         "name": "OX-Gaming",
@@ -92,4 +97,5 @@ def check_channel(channel):
 if __name__ == "__main__":
     for channel in CHANNELS:
         check_channel(channel)
+
 
