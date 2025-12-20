@@ -176,8 +176,31 @@ const darkModeBtn = document.getElementById('darkModeBtn');
 darkModeBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
+
+    document.getElementById("fakeForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const title = document.getElementById("title").value;
+    const message = document.getElementById("message").value;
+
+    const body =
+        "Name: " + name + "%0D%0A" +
+        "E-Mail: " + email + "%0D%0A%0D%0A" +
+        "Beschreibung:%0D%0A" + message + "%0D%0A%0D%0A" +
+        "Bitte Bild als Anhang beifügen (JPG/PNG).";
+
+    const mailtoLink =
+        "mailto:kontakt.oxgaming@gmail.com" +
+        "?subject=" + encodeURIComponent("Einsendung: " + title) +
+        "&body=" + body;
+
+    window.location.href = mailtoLink;
+});
 </script>
 
 </body>
 
 </html>
+
