@@ -63,6 +63,11 @@ body {
     
 }
 
+a {
+	font-decoration: underline;
+	font-color: rgb(50, 50, 50);
+}
+
 body.dark-mode {
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255); 
@@ -333,11 +338,6 @@ h1 {
 	background-color: #ffffff;
 }
 
-a {
-	font-decoration: underline;
-	font-color: rgb(50, 50, 50);
-}
-
 
 
 /* EN:    Adjustment of the view for mobile devices.  */
@@ -402,3 +402,4 @@ a {
     }
 
 }
+
