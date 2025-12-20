@@ -64,7 +64,6 @@ body {
 }
 
 a {
-	font-decoration: underline;
 	color: rgb(50, 50, 50);
 }
 
@@ -402,5 +401,6 @@ h1 {
     }
 
 }
+
 
 
