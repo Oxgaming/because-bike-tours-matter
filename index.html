@@ -55,18 +55,31 @@
 
         </div>
 
-        <h2>Deine Beiträge einrichten:</h2>
+       
 
-        <div>
-            <form id="fakeForm">
-                <input type="text" id="name" placeholder="Dein Name" required>
-                <input type="email" id="email" placeholder="Deine E-Mail" required>
-                <input type="text" id="title" placeholder="Titel / Kurzbeschreibung" required>
-                <textarea id="message" placeholder="Beschreibung"></textarea>
+        <div class="imgupload">
+            <h2>Deine Beiträge einrichten:</h2>
+            <p>
+                Über dieses Formular kannst du uns deine Inhalte ganz einfach zusenden.<br>
+                Nach dem Absenden öffnet sich dein E-Mail-Programm (z.b. Gmail) mit einer bereits ausgefüllten Nachricht.<br>
 
-                <button type="submit">E-Mail öffnen</button>
-            </form>
+                Bitte füge dort dein Bild (JPG oder PNG) als Anhang hinzu und sende die E-Mail ab.<br>
+
+                So stellen wir sicher, dass dein Beitrag vollständig bei uns ankommt.<br>
+                Vielen Dank fürs Mitmachen! 
+            </p>
+            <div class="imgform">
+                <form id="fakeForm">
+                    <input type="text" id="name" placeholder="Dein Name" required>
+                    <input type="email" id="email" placeholder="Deine E-Mail" required>
+                    <input type="text" id="title" placeholder="Titel / Kurzbeschreibung" required>
+                    <textarea id="message" placeholder="Beschreibung"></textarea>
+
+                    <button type="submit">In G-Mail fortfahren</button>
+                </form>
+            </div>
         </div>
+       
 
         <br><br> <br><br> <br><br> <br><br>
 
@@ -189,7 +202,7 @@ darkModeBtn.addEventListener('click', () => {
         "Name: " + name + "\n" +
         "E-Mail: " + email + "\n\n" +
         "Beschreibung:\n" + message + "\n\n" +
-        "Bitte Bild (JPG/PNG) als Anhang hinzufügen.";
+        "Bitte Bild als Anhang hinzufügen. -> JPG/PNG";
 
     const gmailUrl =
         "https://mail.google.com/mail/?view=cm" +
@@ -205,5 +218,6 @@ darkModeBtn.addEventListener('click', () => {
 </body>
 
 </html>
+
 
 
