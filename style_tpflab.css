@@ -67,6 +67,26 @@ a {
 	color: rgb(50, 50, 50);
 }
 
+.imgupload {
+	padding-right: 300px;
+	padding-left: 300px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	background-color: rgb(128, 128, 128);
+	transition: background-color 0.3s ease;
+	display: flex;
+}
+
+.imgupload:hover {
+	background-color: rgb(150, 150, 150,);
+}
+
+.imgform {
+	text-align: center;
+}
+
 body.dark-mode {
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255); 
@@ -401,6 +421,7 @@ h1 {
     }
 
 }
+
 
 
 
