@@ -77,6 +77,10 @@ body.dark-mode {
     color: #f4f4f4;
 }
 
+.dark-mode a {
+	color: rgb(200, 200, 200);
+}
+
 body.dark-mode .post {
     background-color: rgb(51, 51, 51);
     border-color: rgb(255, 255, 255);
@@ -329,7 +333,10 @@ h1 {
 	background-color: #ffffff;
 }
 
-
+a {
+	font-decoration: underline;
+	font-color: rgb(50, 50, 50);
+}
 
 
 
@@ -393,4 +400,5 @@ h1 {
     h2 {
         font-size: 1.2em;
     }
+
 }
