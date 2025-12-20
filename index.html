@@ -58,13 +58,13 @@
         <h2>Deine Beiträge einrichten:</h2>
 
         <div>
-            <form id="uploadForm" action="upload.php" method="post" enctype="multipart/form-data">
-                <input type="text" name="name" placeholder="Dein Name" required>
-                <input type="email" name="email" placeholder="Deine Email" required>
-                <input type="text" name="title" placeholder="Titel / Kurzbeschreibung" required>
-                <textarea name="message" placeholder="Beschreibung"></textarea>
-                <input type="file" name="image" accept=".jpg,.jpeg,.png" required>
-                <button type="submit">Senden</button>
+            <form id="fakeForm">
+                <input type="text" id="name" placeholder="Dein Name" required>
+                <input type="email" id="email" placeholder="Deine E-Mail" required>
+                <input type="text" id="title" placeholder="Titel / Kurzbeschreibung" required>
+                <textarea id="message" placeholder="Beschreibung"></textarea>
+
+                <button type="submit">E-Mail öffnen</button>
             </form>
         </div>
 
@@ -179,4 +179,5 @@ darkModeBtn.addEventListener('click', () => {
 </script>
 
 </body>
+
 </html>
