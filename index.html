@@ -186,21 +186,24 @@ darkModeBtn.addEventListener('click', () => {
     const message = document.getElementById("message").value;
 
     const body =
-        "Name: " + name + "%0D%0A" +
-        "E-Mail: " + email + "%0D%0A%0D%0A" +
-        "Beschreibung:%0D%0A" + message + "%0D%0A%0D%0A" +
-        "Bitte Bild als Anhang beifügen (JPG/PNG).";
+        "Name: " + name + "\n" +
+        "E-Mail: " + email + "\n\n" +
+        "Beschreibung:\n" + message + "\n\n" +
+        "Bitte Bild (JPG/PNG) als Anhang hinzufügen.";
 
-    const mailtoLink =
-        "mailto:kontakt.oxgaming@gmail.com" +
-        "?subject=" + encodeURIComponent("Einsendung: " + title) +
-        "&body=" + body;
+    const gmailUrl =
+        "https://mail.google.com/mail/?view=cm" +
+        "&fs=1" +
+        "&to=kontakt.oxgaming@gmail.com" +
+        "&su=" + encodeURIComponent("Einsendung: " + title) +
+        "&body=" + encodeURIComponent(body);
 
-    window.location.href = mailtoLink;
+    window.open(gmailUrl, "_blank");
 });
 </script>
 
 </body>
 
 </html>
+
 
