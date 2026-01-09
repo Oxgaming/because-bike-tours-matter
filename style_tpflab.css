@@ -33,7 +33,7 @@ body {
 }
 
 a {
-  color: rgb(50, 50, 50);
+  color: rgb(248, 248, 255);
   text-decoration: none;
 }
 
@@ -363,3 +363,4 @@ body.dark-mode .imgupload {
     transform: rotate(-45deg) translate(6px, -6px);
   }
 }
+
