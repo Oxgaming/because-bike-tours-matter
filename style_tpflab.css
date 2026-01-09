@@ -274,3 +274,92 @@ body.dark-mode .imgupload {
     margin-bottom: 30px;
   }
 }
+
+/* =========================
+   MOBILE NAV TOGGLE
+========================= */
+
+/* Checkbox verstecken */
+#nav-toggle {
+  display: none;
+}
+
+/* Burger-Button */
+.nav-toggle-label {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.nav-toggle-label span {
+  width: 28px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: transform .3s ease, opacity .3s ease;
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+@media (max-width: 768px) {
+
+  /* Burger sichtbar */
+  .nav-toggle-label {
+    display: flex;
+  }
+
+  /* Link-Container einklappen */
+  #linktoplab,
+  #linktopind {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgb(50, 159, 100);
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 
+      max-height .4s ease,
+      opacity .3s ease;
+  }
+
+  /* Menü aufklappen */
+  #nav-toggle:checked ~ #linktoplab,
+  #nav-toggle:checked ~ #linktopind {
+    max-height: 500px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Links größer & touchfreundlich */
+  .linktoplink {
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+    font-size: 1.1rem;
+  }
+
+  /* Burger → X Animation */
+  #nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+  }
+
+  #nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
