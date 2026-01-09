@@ -309,40 +309,40 @@ body.dark-mode .imgupload {
   /* Burger sichtbar */
   .nav-toggle-label {
     display: flex;
+    margin-left: auto;
   }
 
-  /* Link-Container einklappen */
-  #linktoplab,
-  #linktopind {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgb(50, 159, 100);
-    flex-direction: column;
-    gap: 10px;
-    padding: 20px;
-    border-radius: 0 0 20px 20px;
-
+  /* Nav standardmäßig zu */
+  .top nav {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
     pointer-events: none;
 
-    transition: 
-      max-height .4s ease,
-      opacity .3s ease;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    background: rgb(50, 159, 100);
+    flex-direction: column;
+    padding: 0 20px;
+    border-radius: 0 0 20px 20px;
+
+    transition:
+      max-height 0.4s ease,
+      opacity 0.3s ease;
   }
 
-  /* Menü aufklappen */
-  #nav-toggle:checked ~ #linktoplab,
-  #nav-toggle:checked ~ #linktopind {
+  /* AUFKLAPPEN */
+  #nav-toggle:checked ~ nav {
     max-height: 500px;
     opacity: 1;
     pointer-events: auto;
+    padding: 20px;
   }
 
-  /* Links größer & touchfreundlich */
+  /* Links mobil */
   .linktoplink {
     width: 100%;
     text-align: center;
@@ -350,7 +350,7 @@ body.dark-mode .imgupload {
     font-size: 1.1rem;
   }
 
-  /* Burger → X Animation */
+  /* Burger → X */
   #nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 6px);
   }
