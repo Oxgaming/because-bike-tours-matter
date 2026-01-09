@@ -58,6 +58,10 @@ a {
   background: rgb(50, 159, 100);
 }
 
+.headlink {
+   font-size: 20px;
+}
+
 #linktoplab,
 #linktopind {
   display: flex;
@@ -405,6 +409,7 @@ body.dark-mode .imgupload {
     transform: rotate(-45deg) translate(6px, -6px);
   }
 }
+
 
 
 
