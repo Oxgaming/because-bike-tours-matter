@@ -67,19 +67,24 @@ a {
 }
 
 .linktoplink {
-  padding: 12px 16px;
-  border-radius: var(--radius);
-  border: 1px solid rgb(60, 179, 113);
-  box-shadow: var(--shadow);
-  font-size: 20px;
-  transition: transform var(--transition), background-color var(--transition);
+    display: inline-block;        /* sorgt dafür, dass die Breite nur den Inhalt umschließt */
+    padding: 6px 12px;            /* kompakter als vorher */
+    border-radius: var(--radius);
+    border: 1px solid rgb(60, 179, 113);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    font-size: 14px;              /* kleiner als Standard für weniger riesige Buttons */
+}
+
+.linktoplink a {
+    text-decoration: none;        /* Link ohne Unterstreichung */
+    color: inherit;               /* übernimmt die Farbe vom Eltern-Container */
 }
 
 .linktoplink:hover {
-  background: rgba(0,0,0,.15);
-  transform: scale(1.05);
+    background: rgba(0,0,0,.1);   /* dezenter als vorher */
+    transform: scale(1.03);       /* sanfter Zoom */
 }
-
 /* =========================
    CONTENT
 ========================= */
@@ -406,6 +411,7 @@ body.dark-mode .imgupload {
     transform: rotate(-45deg) translate(6px, -6px);
   }
 }
+
 
 
 
