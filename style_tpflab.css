@@ -68,7 +68,7 @@ a {
 
 .linktoplink {
     display: inline-block;        /* sorgt dafür, dass die Breite nur den Inhalt umschließt */
-    padding: 6px 12px;            /* kompakter als vorher */
+    padding: 16px 24px;            /* kompakter als vorher */
     border-radius: var(--radius);
     border: 1px solid rgb(60, 179, 113);
     box-shadow: var(--shadow);
@@ -78,7 +78,7 @@ a {
 
 .linktoplink a {
     text-decoration: none;        /* Link ohne Unterstreichung */
-    color: inherit;               /* übernimmt die Farbe vom Eltern-Container */
+    color: ghostwhite;               /* übernimmt die Farbe vom Eltern-Container */
 }
 
 .linktoplink:hover {
@@ -368,6 +368,7 @@ body.dark-mode .imgupload {
     transform: rotate(-45deg) translate(6px, -6px);
   }
 }
+
 
 
 
