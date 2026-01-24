@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahrradtouren</title>
+    <style>
+        body {
+            background-color: rgb(203, 220, 248);
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: ghostwhite;
+        }
+        .top {
+            background-color:rgb(16, 14, 116);
+            height: 150px;
+            width: 100%;
+            border-bottom-color: rgb(41, 81, 189);
+            border-bottom-width: 10px;
+            border-bottom-style: solid;
+            border-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;      
+        }
+        .top > div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        @media (hover: none) {
+            .top:hover {
+            background-color: initial;
+            }
+        }
+        button {
+            background-color: rgb(3, 134, 242);
+            border: none;
+            border-radius: 20px;
+            padding: 25px;
+            padding-left: 40px;
+            padding-right: 40px;
+            margin-left: 20px;
+            margin-right: 25px;
+            margin-bottom: 20px;
+            width: 30%;
+            font-family: inherit;
+            font-size: 14pt;
+            font-weight: bold;
+            box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: rgb(0, 122, 222);
+            transform: scale(1.07);
+        }
+        .topbtn {
+            flex-direction: row;
+            display: flex;
+            margin-left: auto;
+            justify-content: flex-end;
+        }
+        .headline {
+            justify-content: flex-start;
+            color:ghostwhite;
+            margin-left: 180px;
+            margin-right: 30px;
+            margin-bottom: 20px;
+            font-size: 20pt;
+            text-shadow: 0 0 10px #FFFFFF;
+        }
+        .icon {
+            margin-left: 15px;
+        }
+        .categoriebox {
+            margin: 20px;
+            justify-content: left;
+            color: black;
+            font-size:small;
+            font-family: inherit;
+            flex-direction: row;
+            display: flex;
+        }
+        .categorie1, .categorie2, .categorie3, .categorie4 {
+            background-color: rgb(41, 81, 189);
+            margin-right: 23px;
+            margin-top: 2px;
+            padding: 15px;
+            border-radius: 15px;
+            color: ghostwhite;
+            font-size: larger;
+            box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
+            text-align: center;
+            transform: translateY(-18px);
+            margin-left: -18px;
+        }
+        .checkbox-btn {
+            display: block;
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .checkbox-btn input {
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        .checkbox-btn label {
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            border: 2.5px solid #ffffff;
+            border-radius: 5px;
+            transition: .2s linear;
+        }
+        .checkbox-btn input:checked ~ .checkmark {
+            background-color: transparent;
+        }
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            left: 50%;
+            top: 40%;
+            width: 10px;
+            height: 14px;
+            border: 2px solid #ffffff;
+            filter: drop-shadow(0px 0px 10px #ffffff);
+            border-width: 0 2.5px 2.5px 0;
+            transition: .2s linear;
+            transform: translate(-50%, -50%) rotate(-90deg) scale(0.2);
+        }
+        .checkbox-btn input:checked ~ .checkmark:after {
+            visibility: visible;
+            opacity: 1;
+            transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            animation: pulse 1s ease-in;
+        }
+
+        .checkbox-btn input:checked ~ .checkmark {
+            transform: rotate(45deg);
+            border: none;
+        }
+
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1.6);
+            }
+        }
+        #search {
+            background-color: rgb(3, 134, 242);
+            border: none;
+            border-radius: 20px;
+            padding: 25px;
+            padding-left: 40px;
+            padding-right: 40px;
+            margin-left: 20px;
+            margin-right: 25px;
+            margin-bottom: 20px;
+            width: 30%;
+            font-family: inherit;
+            font-size: 14pt;
+            font-weight: bold;
+            box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
+            transition: background-color 0.3s ease;
+        }
+        #search:hover {
+            background-color: rgb(0, 122, 222);
+        }
+        #search::placeholder {
+        color: rgb(0, 0, 0);
+        }
+        .cardheader {
+            background-color: rgb(11, 17, 196);
+            flex-direction: row;
+            display: flex;
+            border-radius: 35px;
+            margin-bottom: 40px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+        .cardcontent {
+            color:black;
+            background-color: aliceblue;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 50px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+        .downloadbtn {
+            background-color: rgb(41, 81, 189);
+            color:aliceblue;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
+            text-decoration: none;
+            transform:translateY(-30px);
+        }
+    </style>
+</head>
+<body>
+        <header class="top">
+            <div>
+                <div class="icon">
+                    <img src="https://purepng.com/public/uploads/large/bicycle-col.png" alt="bike" width="170px">
+                </div>
+                <div class="headline">
+                    <h1>Because Bike Tours Matter</h1>
+                </div>
+                <div class="topbtn">
+                    <input id="search" type="text" placeholder="Search">
+                    <button><a style="text-decoration: none; color:black" href="https://www.google.de/maps/" target="_blank">Maps</a></button>
+                    <button>Download all</button>
+                </div>
+            </div>
+        </header>
+        <nav>
+            <div class="categoriebox">
+                <div class="categorie1"><label class="checkbox-btn">
+                    <input type="checkbox" id="categoriebox1" name="cate1" value="cate1">
+                    <span class="checkmark"></span>
+                    Short tour
+                </label></div>
+
+                <div class="categorie2"><label class="checkbox-btn">
+                    <input type="checkbox" id="categoriebox2" name="cate2" value="cate2">
+                    <span class="checkmark"></span>
+                    Medium tour
+                </label></div>
+
+                <div class="categorie3"><label class="checkbox-btn">
+                    <input type="checkbox" id="categoriebox3" name="cate3" value="cate3">
+                    <span class="checkmark"></span>
+                    Long tour
+                </label></div>
+
+                <div class="categorie4"><label class="checkbox-btn">
+                    <input type="checkbox" id="categoriebox4" name="cate4" value="cate4">
+                    <span class="checkmark"></span>
+                    Extreme tour
+                </label></div>
+            </div>
+        </nav>
+        
+        <div class="tours">
+            <div class="cards">
+                <!--CARDS-->
+
+                <div class="card medium">
+                    <div class="cardheader">
+                        <div class="cardcontent">
+                            <h2>Langenfeld - Baldeneysee Essen</h2>
+                        <p>Eine Route, die sich entlang ehemaliger Bahntrassen schlängelt und dadurch einen ganz eigenen Charakter bekommt, 
+                            geprägt von stillgelegten Gleisen und entspannten Fahrradwegen. Klassiker wie die Nordbahntrasse 
+                            oder die Korkenziehertrasse stehen dabei stellvertretend für diesen besonderen Reiz.</p>
+                        <h3>Checkpoints:</h3>
+                        <ol>
+                            <li>Aldi Süd Wiescheid</li>
+                            <li>Solingen Hbf</li>
+                            <li>Vohwinkel Bf</li>
+                            <li>Graffiti Hall of Fame - Nordbahntrasse</li>
+                            <li>Aldi Nord Wichlinghausen (Weiherstraße 7)</li>
+                            <li>Sprockhövel</li>
+                            <li>Toscana - Hattingen</li>
+                            <li>Essen Überruhr Bf</li>
+                            <li>Südtiroler Stuben Essen</li>
+                            <li>Essen Hügel Bf</li>
+                        </ol>
+                        <h3>Daten:</h3>
+                        <ul>
+                            <li>Länge: 83,25km</li>
+                            <li>Höhenmeter: 580m</li>
+                            <li>Rückfahrt: S6: Essen Hügel - Langenfeld S</li>
+                        </ul>
+                        <a class="downloadbtn" download href="kml/Langenfeld - Baldeneysee.kml">Download</a>
+                        </div>
+                        <div class="cardimg"><img style="border-radius: 15px; margin: 50px;" height="550px" src="img/tour.4682.01.png" alt="Tour"></div>
+                    </div>  
+                </div>
+
+                <div class="card long">
+                    <div class="cardheader">
+                        <div class="cardimg"><img style="border-radius: 15px; margin: 50px;" height="550px" src="img/tour.3849.01.png" alt="Tour"></div>
+                        <div class="cardcontent">
+                            <h2>Bodensee</h2>
+                        <p>Die Tour startet in Singen und führt entlang des Bodenseeufers durch charmante Orte in der Schweiz, Deutschland und Österreich, 
+                            wie Schaffhausen, Bregenz, Lindau oder auch die Blumeninsel Mainau und viele weitere. 
+                            Immer wieder bieten sich tolle Ausblicke auf den See und die Alpen, und an vielen Stellen laden Cafés oder Aussichtspunkte zu Pausen ein. 
+                            Eine abwechslungsreiche Runde, die Natur, Kultur und entspannten Fahrspaß verbindet.</p>
+                        <h3>Checkpoints:</h3>
+                        <ol>
+                            <li>Rheinfall Schaffhausen</li>
+                            <li>Stein am Rhein</li>
+                            <li>Kreuzlingen</li>
+                            <li>Bregenz</li>
+                            <li>Lindau</li>
+                            <li>Friedrichshafen</li>
+                            <li>Mainau</li>
+                            <li>Konstanz</li>
+                            <li>Radolfzell am Bodensee</li>
+                            <li>Essen Hügel Bf</li>
+                        </ol>
+                        <h3>Daten:</h3>
+                        <ul>
+                            <li>Länge: 251,92km</li>
+                            <li>Höhenmeter: 900m</li>
+                        </ul><br>
+                        <a class="downloadbtn" download href="kml/Bodensee.kml">Download</a>
+                        </div>
+                    </div>  
+                </div>
+
+
+            </div>
+        </div>
+
+        <script>
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+            function updateCards() {
+                const cards = document.querySelectorAll('.card');
+
+                const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
+
+                if (!anyChecked) {
+                    cards.forEach(card => card.style.display = 'block');
+                    return;
+                }
+
+                cards.forEach(card => card.style.display = 'none');
+
+                if (document.getElementById('categoriebox1').checked) {
+                    document.querySelectorAll('.card.short').forEach(card => {
+                        card.style.display = 'block';
+                    });
+                }
+
+                if (document.getElementById('categoriebox2').checked) {
+                    document.querySelectorAll('.card.medium').forEach(card => {
+                        card.style.display = 'block';
+                    });
+                }
+
+                if (document.getElementById('categoriebox3').checked) {
+                    document.querySelectorAll('.card.long').forEach(card => {
+                        card.style.display = 'block';
+                    });
+                }
+
+                if (document.getElementById('categoriebox4').checked) {
+                    document.querySelectorAll('.card.extreme').forEach(card => {
+                        card.style.display = 'block';
+                    });
+                }
+            }
+
+            checkboxes.forEach(cb => cb.addEventListener('change', updateCards));
+            updateCards();
+        </script>
+    </body>
+</html>
