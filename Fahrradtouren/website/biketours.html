@@ -209,6 +209,14 @@
             text-decoration: none;
             transform:translateY(-30px);
         }
+
+        #toggleFilters {
+          cursor: pointer;
+        }
+        
+        #filterForm[hidden] {
+          display: none;
+        }
     </style>
 </head>
 <body>
@@ -253,6 +261,11 @@
                     Extreme tour
                 </label></div>
 
+                <button type="button" id="toggleFilters" aria-expanded="false">
+                    Kategorien ▾
+                  </button>
+                
+                 <form id="filterForm" hidden>
                  <div class="categoryFilter">
                      <fieldset>
                         <legend>Umgebung</legend>
@@ -300,8 +313,8 @@
                         <label><input type="checkbox" value=""> Sachsen-Anhalt</label>
                         <label><input type="checkbox" value=""> Schleswig-Holstein</label>
                         <label><input type="checkbox" value=""> Thüringen </label>
-
                       </fieldset>
+                     </form>
                     </div>
 
                 
@@ -597,6 +610,7 @@
     </body>
 
 </html>
+
 
 
 
