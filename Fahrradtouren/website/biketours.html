@@ -217,6 +217,19 @@
         #filterForm[hidden] {
           display: none;
         }
+
+        .collapsible-content {
+          display: none;
+          padding-left: 1rem; 
+        }
+        
+        .collapsible.open .collapsible-content {
+          display: block;
+        }
+        
+        .collapsible legend {
+          cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -261,61 +274,78 @@
                     Extreme tour
                 </label></div>
 
+                <!-- Hauptbutton zum Ein-/Ausklappen des Filters -->
                 <button type="button" id="toggleFilters" aria-expanded="false" class="categoryFilter">
-                    Kategorien ▾
-                  </button>
+                  Kategorien ▾
+                </button>
                 
-                 <form id="filterForm" hidden>
-                 <div>
-                     <fieldset>
-                        <legend>Umgebung</legend>
-                        <label><input type="checkbox" value=""> Wald</label>
-                        <label><input type="checkbox" value=""> Alpin</label>
-                        <label><input type="checkbox" value=""> Flüsse/Seen</label>
-                      </fieldset>
-                     
-                     <fieldset>
-                        <legend>Steigungsgrad</legend>
-                        <label><input type="checkbox" value=""> Wenig Steigung</label>
-                        <label><input type="checkbox" value=""> Moderate Steigung</label>
-                        <label><input type="checkbox" value=""> Enorme Steigung</label>
-                      </fieldset>
-                    
-                      <fieldset>
-                        <legend>Art der Tour</legend>
-                        <label><input type="checkbox" value=""> Rundstrecke</label>
-                        <label><input type="checkbox" value=""> Einwegstrecke</label>
-                        <label><input type="checkbox" value=""> Cross-Border-Tour</label>
-                      </fieldset>
-                    
-                      <fieldset>
-                        <legend>Untergrund</legend>
-                        <label><input type="checkbox" value=""> Asphalt</label>
-                        <label><input type="checkbox" value=""> Schotter & Waldwege</label>
-                      </fieldset>
-                    
-                      <fieldset>
-                        <legend>Region</legend>
-                        <label><input type="checkbox" value=""> Quer durch Deutschland</label>
-                        <label><input type="checkbox" value=""> Baden-Württemberg</label>
-                        <label><input type="checkbox" value=""> Bayern</label>
-                        <label><input type="checkbox" value=""> Berlin</label>
-                        <label><input type="checkbox" value=""> Brandenburg</label>
-                        <label><input type="checkbox" value=""> Bremen</label>
-                        <label><input type="checkbox" value=""> Hamburg</label>
-                        <label><input type="checkbox" value=""> Hessen</label>
-                        <label><input type="checkbox" value=""> Mecklenburg-Vorpommern</label>
-                        <label><input type="checkbox" value=""> Niedersachsen</label>
-                        <label><input type="checkbox" value=""> Nordrhein-Westfalen</label>
-                        <label><input type="checkbox" value=""> Rheinland-Pfalz</label>
-                        <label><input type="checkbox" value=""> Saarland</label>
-                        <label><input type="checkbox" value=""> Sachsen</label>
-                        <label><input type="checkbox" value=""> Sachsen-Anhalt</label>
-                        <label><input type="checkbox" value=""> Schleswig-Holstein</label>
-                        <label><input type="checkbox" value=""> Thüringen </label>
-                      </fieldset>
-                     </form>
-                    </div>
+                <!-- Filterformular, initial verborgen -->
+                <form id="filterForm" hidden>
+                  <div>
+                    <!-- Umgebung -->
+                    <fieldset class="collapsible">
+                      <legend>Umgebung ▾</legend>
+                      <div class="collapsible-content">
+                        <label><input type="checkbox" value="wald"> Wald</label>
+                        <label><input type="checkbox" value="alpin"> Alpin</label>
+                        <label><input type="checkbox" value="fluesse-seen"> Flüsse/Seen</label>
+                      </div>
+                    </fieldset>
+                
+                    <!-- Steigungsgrad -->
+                    <fieldset class="collapsible">
+                      <legend>Steigungsgrad ▾</legend>
+                      <div class="collapsible-content">
+                        <label><input type="checkbox" value="wenig-steigung"> Wenig Steigung</label>
+                        <label><input type="checkbox" value="moderate-steigung"> Moderate Steigung</label>
+                        <label><input type="checkbox" value="enorme-steigung"> Enorme Steigung</label>
+                      </div>
+                    </fieldset>
+                
+                    <!-- Art der Tour -->
+                    <fieldset class="collapsible">
+                      <legend>Art der Tour ▾</legend>
+                      <div class="collapsible-content">
+                        <label><input type="checkbox" value="rundstrecke"> Rundstrecke</label>
+                        <label><input type="checkbox" value="einwegstrecke"> Einwegstrecke</label>
+                        <label><input type="checkbox" value="cross-border"> Cross-Border-Tour</label>
+                      </div>
+                    </fieldset>
+                
+                    <!-- Untergrund -->
+                    <fieldset class="collapsible">
+                      <legend>Untergrund ▾</legend>
+                      <div class="collapsible-content">
+                        <label><input type="checkbox" value="asphalt"> Asphalt</label>
+                        <label><input type="checkbox" value="schotter-waldwege"> Schotter & Waldwege</label>
+                      </div>
+                    </fieldset>
+                
+                    <!-- Region -->
+                    <fieldset class="collapsible">
+                      <legend>Region ▾</legend>
+                      <div class="collapsible-content">
+                        <label><input type="checkbox" value="quer-deutschland"> Quer durch Deutschland</label>
+                        <label><input type="checkbox" value="baden-wuerttemberg"> Baden-Württemberg</label>
+                        <label><input type="checkbox" value="bayern"> Bayern</label>
+                        <label><input type="checkbox" value="berlin"> Berlin</label>
+                        <label><input type="checkbox" value="brandenburg"> Brandenburg</label>
+                        <label><input type="checkbox" value="bremen"> Bremen</label>
+                        <label><input type="checkbox" value="hamburg"> Hamburg</label>
+                        <label><input type="checkbox" value="hessen"> Hessen</label>
+                        <label><input type="checkbox" value="mecklenburg-vorpommern"> Mecklenburg-Vorpommern</label>
+                        <label><input type="checkbox" value="niedersachsen"> Niedersachsen</label>
+                        <label><input type="checkbox" value="nrw"> Nordrhein-Westfalen</label>
+                        <label><input type="checkbox" value="rheinland-pfalz"> Rheinland-Pfalz</label>
+                        <label><input type="checkbox" value="saarland"> Saarland</label>
+                        <label><input type="checkbox" value="sachsen"> Sachsen</label>
+                        <label><input type="checkbox" value="sachsen-anhalt"> Sachsen-Anhalt</label>
+                        <label><input type="checkbox" value="schleswig-holstein"> Schleswig-Holstein</label>
+                        <label><input type="checkbox" value="thueringen"> Thüringen</label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </form>
 
                 
             </div>
@@ -622,10 +652,21 @@
                   : "Kategorien ▴";
               });
             });
+
+            document.querySelectorAll(".collapsible legend").forEach(legend => {
+              legend.addEventListener("click", () => {
+                const fieldset = legend.parentElement;
+                fieldset.classList.toggle("open");
+            
+                const isOpen = fieldset.classList.contains("open");
+                legend.innerHTML = legend.textContent.replace(/▾|▴/, "") + (isOpen ? " ▴" : " ▾");
+              });
+            });
         </script>
     </body>
 
 </html>
+
 
 
 
