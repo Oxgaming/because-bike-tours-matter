@@ -261,12 +261,12 @@
                     Extreme tour
                 </label></div>
 
-                <button type="button" id="toggleFilters" aria-expanded="false">
+                <button type="button" id="toggleFilters" aria-expanded="false" class="categoryFilter">
                     Kategorien ▾
                   </button>
                 
                  <form id="filterForm" hidden>
-                 <div class="categoryFilter">
+                 <div>
                      <fieldset>
                         <legend>Umgebung</legend>
                         <label><input type="checkbox" value=""> Wald</label>
@@ -606,10 +606,27 @@
                 filterSelect.addEventListener("change", filterCards);
                 filterCards();
             });
+
+            document.addEventListener("DOMContentLoaded", () => {
+              const toggleBtn = document.getElementById("toggleFilters");
+              const filterForm = document.getElementById("filterForm");
+            
+              toggleBtn.addEventListener("click", () => {
+                const isOpen = !filterForm.hasAttribute("hidden");
+            
+                filterForm.toggleAttribute("hidden");
+                toggleBtn.setAttribute("aria-expanded", String(!isOpen));
+            
+                toggleBtn.innerHTML = isOpen
+                  ? "Kategorien ▾"
+                  : "Kategorien ▴";
+              });
+            });
         </script>
     </body>
 
 </html>
+
 
 
 
