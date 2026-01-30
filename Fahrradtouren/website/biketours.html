@@ -252,6 +252,46 @@
                     <span class="checkmark"></span>
                     Extreme tour
                 </label></div>
+
+                 <div class="categoryFilter">
+                    <select id="categoryFilter">
+                        <option value="all">Alle Kategorien</option>
+                        <option value="">Allerlei Natur</option>
+                        <optgroup label="Steigungsgrad">
+                            <option value="">Wenig Steigung</option>
+                            <option value="">Moderate Steigung</option>
+                            <option value="">Enorme Steigung</option>
+                        </optgroup>
+                        <optgroup label="Art der Tour">
+                            <option value="">Rundstrecke</option>
+                            <option value="">Einwegstrecke</option>
+                            <option value="">Cross-Border-Tour</option>
+                        </optgroup>
+                        <optgroup label="Untergrund">
+                            <option value="">Asphalt</option>
+                            <option value="">Schotter & Waldwege</option>
+                        </optgroup>
+                        <optgroup label="Untergrund">
+                            <option value="">Quer Durch Deutschland</option>
+                            <option value="">Baden-Württemberg</option>
+                            <option value="">Bayern</option>
+                            <option value="">Berlin</option>
+                            <option value="">Brandenburg</option>
+                            <option value="">Bremen</option>
+                            <option value="">Hamburg</option>
+                            <option value="">Hessen</option>
+                            <option value="">Mecklenburg-Vorpommern</option>
+                            <option value="">Niedersachsen</option>
+                            <option value="">Nordrhein-Westfalen</option>
+                            <option value="">Rheinland-Pfalz</option>
+                            <option value="">Saarland</option>
+                            <option value="">Sachsen</option>
+                            <option value="">Sachsen-Anhalt</option>
+                            <option value="">Schleswig-Holstein</option>
+                            <option value="">Thüringen </option>
+                        </optgroup>
+                    </select>
+                 </div>
             </div>
         </nav>
         
@@ -259,7 +299,7 @@
             <div class="cards">
                 <!--CARDS-->
 
-                <div class="card long">
+                <div class="card long" data-categories="">
                     <div class="cardheader">
                         <div class="cardcontent">
                             <h2>Langenfeld - Baldeneysee Essen</h2>
@@ -291,7 +331,7 @@
                     </div>  
                 </div>
 
-                <div class="card extreme">
+                <div class="card extreme" data-categories="">
                     <div class="cardheader">
                         <div class="cardimg"><img style="border-radius: 15px; margin: 50px;" height="550px" src="img/tour.3849.01.png" alt="Tour"></div>
                         <div class="cardcontent">
@@ -327,7 +367,7 @@
             </div>
         </div>
 
-         <div class="card short">
+         <div class="card short" data-categories="">
                     <div class="cardheader">
                         <div class="cardcontent">
                             <h2>Langenfeld - Little Tokyo Düsseldorf</h2>
@@ -352,7 +392,7 @@
                     </div>  
                 </div>
 
-                <div class="card long">
+                <div class="card long" data-categories="">
                     <div class="cardheader">
                         <div class="cardimg"><img style="border-radius: 15px; margin: 50px;" height="550px" src="img/tour.9248.01.png" alt="Tour"></div>
                         <div class="cardcontent">
@@ -384,7 +424,7 @@
                     </div>  
                 </div>
 
-                 <div class="card medium">
+                 <div class="card medium" data-categories="">
                     <div class="cardheader">
                         <div class="cardcontent">
                             <h2>Langenfeld - Rheinberg</h2>
@@ -418,7 +458,7 @@
 
 
 
-                <div class="card long">
+                <div class="card long" data-categories="">
                     <div class="cardheader">
                         <div class="cardimg"><img style="border-radius: 15px; margin: 50px;" height="550px" src="img/tour.2838.01.png" alt="Tour"></div>
                         <div class="cardcontent">
@@ -514,10 +554,37 @@
 
             checkboxes.forEach(cb => cb.addEventListener('change', updateCards));
             updateCards();
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const filterSelect = document.getElementById("categoryFilter");
+                const cards = document.querySelectorAll(".card");
+            
+                function filterCards() {
+                    const selectedCategory = filterSelect.value;
+            
+                    cards.forEach(card => {
+                        const categories = card.dataset.categories
+                            .split(",")
+                            .map(c => c.trim());
+            
+                        if (selectedCategory === "all") {
+                            card.style.display = "block";
+                        } else if (categories.includes(selectedCategory)) {
+                            card.style.display = "block";
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+                }
+            
+                filterSelect.addEventListener("change", filterCards);
+                filterCards();
+            });
         </script>
     </body>
 
 </html>
+
 
 
 
