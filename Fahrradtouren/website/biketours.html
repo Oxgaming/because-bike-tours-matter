@@ -9,6 +9,7 @@
             background-color: rgb(203, 220, 248);
             font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             color: ghostwhite;
+            overflow-x: hidden;
         }
         .top {
             background-color:rgb(16, 14, 116);
@@ -90,12 +91,14 @@
             text-align: center;
             transform: translateY(-18px);
             margin-left: -18px;
+            border: none;
         }
+        .categoryFilter {font-weight: bold; position: relative;}
         .checkbox-btn {
             display: block;
             position: relative;
             padding-left: 30px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             cursor: pointer;
             -webkit-user-select: none;
             -moz-user-select: none;
@@ -217,14 +220,20 @@
         #filterForm[hidden] {
           display: none;
         }
-
+        #filterForm {
+            position: absolute;
+            width: 300px;
+        }
         .collapsible-content {
           display: none;
-          padding-left: 1rem; 
+          padding-left: 1rem;
         }
         
         .collapsible.open .collapsible-content {
-          display: block;
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+          margin-left: 12%;
         }
         
         .collapsible legend {
@@ -234,7 +243,90 @@
         .collapsible {
             background-color: rgb(41, 81, 189);
             border-radius: 15px;
+            position: relative;
+            color:ghostwhite;
+            font-weight: bold;
+            border: none;
+            box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
+            text-align: center;
+            padding: 10px;
         }
+        legend {
+            transform: translateY(10px);
+        }
+        #toggleFilters {
+            position: relative;
+            cursor: pointer;
+        }
+        #filterForm {
+            position: absolute;  
+            top: 160px;
+            left: 745px;             
+            margin-top: 5px;     
+            display: none;       
+            z-index: 1000;       
+        }
+        #filterForm.show {
+            display: block;
+        }
+        .noresult {
+            text-align: center;
+            margin-bottom: 400px;
+            transform: scale(1.5);
+            color:black;
+            text-shadow: 0 0 10px #000000;
+        }
+        #clearCategories {
+            --hover-shadows: rgba(0, 0, 0, 0.75) 0px 5px 15px;
+            --accent: rgb(21, 38, 186);
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            border: none;
+            border-radius: 1.1em;
+            background-color: #212121;
+            cursor: pointer;
+            color: ghostwhite;
+            padding: 1em 2em;
+            transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
+                letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s;
+            z-index: 10;
+        }
+
+        #clearCategories:hover {
+            box-shadow: var(--hover-shadows);
+        }
+
+        #clearCategories:active {
+            box-shadow: var(--hover-shadows), var(--accent) 0px 0px 30px 5px;
+            background-color: var(--accent);
+            transform: scale(0.95);
+        }
+        .footer {
+            background: #393a3e;
+            padding: 60px 20px;
+            border-radius: var(--radius-lg);
+            box-shadow: rgb(38, 41, 77) 0px 20px 30px -10px;
+            border-radius: 35px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li a {
+            color: rgb(20, 39, 255);
+            text-shadow: 0 0 10px #9399ffd4;
+            transition: padding-left 0.15s ease, color 0.15s ease;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 8px;
+        }
+
     </style>
 </head>
 <body>
@@ -247,9 +339,9 @@
                     <h1>Because Bike Tours Matter</h1>
                 </div>
                 <div class="topbtn">
-                    <input id="search" type="text" placeholder="Search">
+                    <input id="search" type="text" placeholder="Suchen...">
                     <button class="topbutton"><a style="text-decoration: none; color:black" href="https://www.google.de/maps/" target="_blank">Maps</a></button>
-                    <button  class="topbutton">Download all</button>
+                    <button  class="topbutton">unnamed</button>
                 </div>
             </div>
         </header>
@@ -289,66 +381,115 @@
                   <div>
                     <!-- Umgebung -->
                     <fieldset class="collapsible">
-                      <legend>Umgebung ▾</legend>
-                      <div class="collapsible-content">
-                        <label><input type="checkbox" value="wald"> Wald</label>
-                        <label><input type="checkbox" value="alpin"> Alpin</label>
-                        <label><input type="checkbox" value="fluesse-seen"> Flüsse/Seen</label>
-                      </div>
-                    </fieldset>
-                
-                    <!-- Steigungsgrad -->
-                    <fieldset class="collapsible">
-                      <legend>Steigungsgrad ▾</legend>
-                      <div class="collapsible-content">
-                        <label><input type="checkbox" value="wenig-steigung"> Wenig Steigung</label>
-                        <label><input type="checkbox" value="moderate-steigung"> Moderate Steigung</label>
-                        <label><input type="checkbox" value="enorme-steigung"> Enorme Steigung</label>
-                      </div>
-                    </fieldset>
-                
-                    <!-- Art der Tour -->
-                    <fieldset class="collapsible">
-                      <legend>Art der Tour ▾</legend>
-                      <div class="collapsible-content">
-                        <label><input type="checkbox" value="rundstrecke"> Rundstrecke</label>
-                        <label><input type="checkbox" value="einwegstrecke"> Einwegstrecke</label>
-                        <label><input type="checkbox" value="cross-border"> Cross-Border-Tour</label>
-                      </div>
-                    </fieldset>
-                
-                    <!-- Untergrund -->
-                    <fieldset class="collapsible">
-                      <legend>Untergrund ▾</legend>
-                      <div class="collapsible-content">
-                        <label><input type="checkbox" value="asphalt"> Asphalt</label>
-                        <label><input type="checkbox" value="schotter-waldwege"> Schotter & Waldwege</label>
-                      </div>
-                    </fieldset>
-                
-                    <!-- Region -->
-                    <fieldset class="collapsible">
-                      <legend>Region ▾</legend>
-                      <div class="collapsible-content">
-                        <label><input type="checkbox" value="quer-deutschland"> Quer durch Deutschland</label>
-                        <label><input type="checkbox" value="baden-wuerttemberg"> Baden-Württemberg</label>
-                        <label><input type="checkbox" value="bayern"> Bayern</label>
-                        <label><input type="checkbox" value="berlin"> Berlin</label>
-                        <label><input type="checkbox" value="brandenburg"> Brandenburg</label>
-                        <label><input type="checkbox" value="bremen"> Bremen</label>
-                        <label><input type="checkbox" value="hamburg"> Hamburg</label>
-                        <label><input type="checkbox" value="hessen"> Hessen</label>
-                        <label><input type="checkbox" value="mecklenburg-vorpommern"> Mecklenburg-Vorpommern</label>
-                        <label><input type="checkbox" value="niedersachsen"> Niedersachsen</label>
-                        <label><input type="checkbox" value="nrw"> Nordrhein-Westfalen</label>
-                        <label><input type="checkbox" value="rheinland-pfalz"> Rheinland-Pfalz</label>
-                        <label><input type="checkbox" value="saarland"> Saarland</label>
-                        <label><input type="checkbox" value="sachsen"> Sachsen</label>
-                        <label><input type="checkbox" value="sachsen-anhalt"> Sachsen-Anhalt</label>
-                        <label><input type="checkbox" value="schleswig-holstein"> Schleswig-Holstein</label>
-                        <label><input type="checkbox" value="thueringen"> Thüringen</label>
-                      </div>
-                    </fieldset>
+                        <legend>Umgebung ▾</legend>
+                        <div class="collapsible-content">
+                            <label class="checkbox-btn">
+                            <input class="checkmarkcategory" type="checkbox" value="wald">
+                            <span class="checkmark"></span>
+                            Wald
+                            </label>
+                            <label class="checkbox-btn">
+                            <input class="checkmarkcategory" type="checkbox" value="alpn">
+                            <span class="checkmark"></span>
+                            Alpin
+                            </label>
+                            <label class="checkbox-btn">
+                            <input class="checkmarkcategory" type="checkbox" value="seen">
+                            <span class="checkmark"></span>
+                            Flüsse/Seen
+                            </label>
+                            <label class="checkbox-btn">
+                            <input class="checkmarkcategory" type="checkbox" value="city">
+                            <span class="checkmark"></span>
+                            Stadt
+                            </label>
+                        </div>
+                        </fieldset>
+
+                        <!-- Steigungsgrad -->
+                        <fieldset class="collapsible">
+                        <legend>Steigungsgrad ▾</legend>
+                        <div class="collapsible-content">
+                            <label class="checkbox-btn">
+                            <input class="checkmarkcategory" type="checkbox" value="lows">
+                            <span class="checkmark"></span>
+                            Wenig Steigung
+                            </label>
+                            <label class="checkbox-btn">
+                            <input class="checkmarkcategory" type="checkbox" value="mids">
+                            <span class="checkmark"></span>
+                            Moderate Steigung
+                            </label>
+                            <label class="checkbox-btn">
+                            <input class="checkmarkcategory" type="checkbox" value="higs">
+                            <span class="checkmark"></span>
+                            Enorme Steigung
+                            </label>
+                        </div>
+                        </fieldset>
+
+                        <!-- Art der Tour -->
+                        <fieldset class="collapsible">
+                        <legend>Art der Tour ▾</legend>
+                        <div class="collapsible-content">
+                            <label class="checkbox-btn">
+                            <input class="checkmarkcategory" type="checkbox" value="rund">
+                            <span class="checkmark"></span>
+                            Rundstrecke
+                            </label>
+                            <label class="checkbox-btn">
+                            <input class="checkmarkcategory" type="checkbox" value="onew">
+                            <span class="checkmark"></span>
+                            Einwegstrecke
+                            </label>
+                            <label class="checkbox-btn">
+                            <input class="checkmarkcategory" type="checkbox" value="cros">
+                            <span class="checkmark"></span>
+                            Cross-Border-Tour
+                            </label>
+                        </div>
+                        </fieldset>
+
+                        <!-- Untergrund -->
+                        <fieldset class="collapsible">
+                        <legend>Untergrund ▾</legend>
+                        <div class="collapsible-content">
+                            <label class="checkbox-btn">
+                            <input class="checkmarkcategory" type="checkbox" value="asph">
+                            <span class="checkmark"></span>
+                            Asphalt
+                            </label>
+                            <label class="checkbox-btn">
+                            <input class="checkmarkcategory" type="checkbox" value="wege">
+                            <span class="checkmark"></span>
+                            Schotter & Waldwege
+                            </label>
+                        </div>
+                        </fieldset>
+
+                        <!-- Region -->
+                        <fieldset class="collapsible">
+                        <legend>Region ▾</legend>
+                        <div class="collapsible-content">
+                            <label class="checkbox-btn"><input class="checkmarkcategory" type="checkbox" value="qddl"><span class="checkmark"></span> Quer durch Deutschland</label>
+                            <label class="checkbox-btn"><input class="checkmarkcategory" type="checkbox" value="bawu"><span class="checkmark"></span> Baden-Württemberg</label>
+                            <label class="checkbox-btn"><input class="checkmarkcategory" type="checkbox" value="bayr"><span class="checkmark"></span> Bayern</label>
+                            <label class="checkbox-btn"><input class="checkmarkcategory" type="checkbox" value="berl"><span class="checkmark"></span> Berlin</label>
+                            <label class="checkbox-btn"><input class="checkmarkcategory" type="checkbox" value="brad"><span class="checkmark"></span> Brandenburg</label>
+                            <label class="checkbox-btn"><input class="checkmarkcategory" type="checkbox" value="brem"><span class="checkmark"></span> Bremen</label>
+                            <label class="checkbox-btn"><input class="checkmarkcategory" type="checkbox" value="hamb"><span class="checkmark"></span> Hamburg</label>
+                            <label class="checkbox-btn"><input class="checkmarkcategory" type="checkbox" value="hess"><span class="checkmark"></span> Hessen</label>
+                            <label class="checkbox-btn"><input class="checkmarkcategory" type="checkbox" value="meck"><span class="checkmark"></span> Mecklenburg-Vorpommern</label>
+                            <label class="checkbox-btn"><input class="checkmarkcategory" type="checkbox" value="nied"><span class="checkmark"></span> Niedersachsen</label>
+                            <label class="checkbox-btn"><input class="checkmarkcategory" type="checkbox" value="nrwf"><span class="checkmark"></span> Nordrhein-Westfalen</label>
+                            <label class="checkbox-btn"><input class="checkmarkcategory" type="checkbox" value="rlpf"><span class="checkmark"></span> Rheinland-Pfalz</label>
+                            <label class="checkbox-btn"><input class="checkmarkcategory" type="checkbox" value="saar"><span class="checkmark"></span> Saarland</label>
+                            <label class="checkbox-btn"><input class="checkmarkcategory" type="checkbox" value="sach"><span class="checkmark"></span> Sachsen</label>
+                            <label class="checkbox-btn"><input class="checkmarkcategory" type="checkbox" value="saan"><span class="checkmark"></span> Sachsen-Anhalt</label>
+                            <label class="checkbox-btn"><input class="checkmarkcategory" type="checkbox" value="swhs"><span class="checkmark"></span> Schleswig-Holstein</label>
+                            <label class="checkbox-btn"><input class="checkmarkcategory" type="checkbox" value="thue"><span class="checkmark"></span> Thüringen</label>
+                        </div>
+                     </fieldset>
                   </div>
                 </form>
 
@@ -359,8 +500,10 @@
         <div class="tours">
             <div class="cards">
                 <!--CARDS-->
+                
+                
 
-                <div class="card long" data-categories="">
+                <div class="card long" data-categories="seen,mids,onew,wege,nrwf">
                     <div class="cardheader">
                         <div class="cardcontent">
                             <h2>Langenfeld - Baldeneysee Essen</h2>
@@ -392,7 +535,7 @@
                     </div>  
                 </div>
 
-                <div class="card extreme" data-categories="">
+                <div class="card extreme" data-categories="seen,alpn,higs,rund,cros,asph,bawu">
                     <div class="cardheader">
                         <div class="cardimg"><img style="border-radius: 15px; margin: 50px;" height="550px" src="img/tour.3849.01.png" alt="Tour"></div>
                         <div class="cardcontent">
@@ -428,7 +571,7 @@
             </div>
         </div>
 
-         <div class="card short" data-categories="">
+         <div class="card short" data-categories="city,lows,onew,asph,nrwf">
                     <div class="cardheader">
                         <div class="cardcontent">
                             <h2>Langenfeld - Little Tokyo Düsseldorf</h2>
@@ -453,7 +596,7 @@
                     </div>  
                 </div>
 
-                <div class="card long" data-categories="">
+                <div class="card long" data-categories="seen,wald,lows,onew,cros,asph,nrwf">
                     <div class="cardheader">
                         <div class="cardimg"><img style="border-radius: 15px; margin: 50px;" height="550px" src="img/tour.9248.01.png" alt="Tour"></div>
                         <div class="cardcontent">
@@ -485,7 +628,7 @@
                     </div>  
                 </div>
 
-                 <div class="card medium" data-categories="">
+                 <div class="card medium" data-categories="seen,lows,onew,asph,nrwf">
                     <div class="cardheader">
                         <div class="cardcontent">
                             <h2>Langenfeld - Rheinberg</h2>
@@ -519,7 +662,7 @@
 
 
 
-                <div class="card long" data-categories="">
+                <div class="card long" data-categories="wald,seen,higs,rund,wege,nrwf">
                     <div class="cardheader">
                         <div class="cardimg"><img style="border-radius: 15px; margin: 50px;" height="550px" src="img/tour.2838.01.png" alt="Tour"></div>
                         <div class="cardcontent">
@@ -554,136 +697,212 @@
                 </div>
 
 
+                <!--   /\   New Routes
+                       |   
+                -->
 
-
-
-
-
-        <footer class="footer">
-            <div class="footercontent">
-                <div class="footerinfo">
-
+                <div id="noToursMessage" class="noresult">
+                    Keine Touren verfügbar für diese Kategorie.
+                    <button id="clearCategories" style="margin-left:10px; padding:5px 10px; border-radius:5px; cursor:pointer;">
+                    Alle Kategorien abwählen
+                    </button><br>
+                    <img src="icons/deadbush.png" alt="deadbush" height="300px" style="position:absolute; transform: translateY(-40px); right: 35%; pointer-events: none;">
                 </div>
-                <div class="footerinfo">
-                    
-                </div>
-                <div class="footerinfo">
-                    
-                </div>
-            </div>
-        </footer>   
+            
 
-        <script>
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                            <footer class="footer">
+                            <div class="footercontent">
+                                <div class="row">
+                                    <div class="footer-col">
+                                        <h4 id="copyright">&copy; <span id="year"></span> Because Bike Tours Matter</h4>
+                                        <h4>Allgemein</h4>
+                                        <ul>
+                                            <li><a href="kontakt.oxgaming@gmail.com">Kontakt</a></li>
+                                            <li><a href="biketours.impressum.html">Impressum</a></li>
+                                            <li><a href="https://discord.gg/SknncTZwwJ">Discord Channel</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer-col">
+                                        <h4>Seiten</h4>
+                                        <ul>
+                                            <li><a href="biketours.html">Homepage</a></li>
+                                            <li><a href="biketours.html">Datenschutz</a></li>
+                                            <li><a href="biketours.html">AGB</a></li>
 
-            function updateCards() {
-                const cards = document.querySelectorAll('.card');
+                                        </ul>
+                                    </div>
+                                    <div class="footer-col">
+                                        <h4>Folge uns</h4>
+                                        <ul>
+                                            <li><a href="https://discord.gg/SknncTZwwJ">Discord Channel</a></li>
+                                            <li><a href="biketours.html">YouTube (Kommt bald)</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
 
-                const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
 
-                if (!anyChecked) {
-                    cards.forEach(card => card.style.display = 'block');
-                    return;
-                }
 
-                cards.forEach(card => card.style.display = 'none');
 
-                if (document.getElementById('categoriebox1').checked) {
-                    document.querySelectorAll('.card.short').forEach(card => {
-                        card.style.display = 'block';
-                    });
-                }
 
-                if (document.getElementById('categoriebox2').checked) {
-                    document.querySelectorAll('.card.medium').forEach(card => {
-                        card.style.display = 'block';
-                    });
-                }
+                                                                                                <!--
+                                                                                            Umgebung:
+                                                                                                Wald = wald
+                                                                                                Alpin = alpn
+                                                                                                Flüsse/Seen = seen
+                                                                                                Stadt = city
 
-                if (document.getElementById('categoriebox3').checked) {
-                    document.querySelectorAll('.card.long').forEach(card => {
-                        card.style.display = 'block';
-                    });
-                }
+                                                                                            Steigungsgrad:
+                                                                                                Wenig Steigung = lows
+                                                                                                Moderate Steigung = mids
+                                                                                                Enorme Steigung = higs
 
-                if (document.getElementById('categoriebox4').checked) {
-                    document.querySelectorAll('.card.extreme').forEach(card => {
-                        card.style.display = 'block';
-                    });
-                }
-            }
+                                                                                            Art der Tour:
+                                                                                                Rundstrecke = rund
+                                                                                                Einwegstrecke = onew
+                                                                                                Cross-Border-Tour = cros
 
-            checkboxes.forEach(cb => cb.addEventListener('change', updateCards));
-            updateCards();
+                                                                                            Untergrund:
+                                                                                                Asphalt = asph
+                                                                                                Schotter & Waldwege = wege
 
+                                                                                            Region:
+                                                                                                Quer durch Deutschland = qddl
+                                                                                                Baden-Württemberg = bawu
+                                                                                                Bayern = bayr
+                                                                                                Berlin = berl
+                                                                                                Brandenburg = brad
+                                                                                                Bremen = brem
+                                                                                                Hamburg = hamb
+                                                                                                Hessen = hess
+                                                                                                Mecklenburg-Vorpommern = meck
+                                                                                                Niedersachsen = nied
+                                                                                                Nordrhein-Westfalen = nrwf
+                                                                                                Rheinland-Pfalz = rlpf
+                                                                                                Saarland = saar
+                                                                                                Sachsen = sach
+                                                                                                Sachsen-Anhalt = saan
+                                                                                                Schleswig-Holstein = swhs
+                                                                                                Thüringen = thue
+                                                                                                -->
+       <script>
             document.addEventListener("DOMContentLoaded", () => {
-                const filterSelect = document.getElementById("categoryFilter");
-                const cards = document.querySelectorAll(".card");
-            
-                function filterCards() {
-                    const selectedCategory = filterSelect.value;
-            
+                const checkboxes = document.querySelectorAll('#filterForm input[type="checkbox"]');
+                const cards = document.querySelectorAll('.card');
+                const noToursMessage = document.getElementById('noToursMessage');
+                const clearBtn = document.getElementById("clearCategories");
+                const toggleBtn = document.getElementById("toggleFilters");
+                const filterForm = document.getElementById("filterForm");
+
+                const lengthButtons = [
+                    document.getElementById('categoriebox1'), // short
+                    document.getElementById('categoriebox2'), // medium
+                    document.getElementById('categoriebox3'), // long
+                    document.getElementById('categoriebox4')  // extreme
+                ];
+
+                function updateCards() {
+                    // Alle aktiven Kategorien aus den Filter-Checkboxen
+                    const activeCategories = Array.from(checkboxes)
+                        .filter(cb => cb.checked)
+                        .map(cb => cb.value);
+
+                    // Aktive Längenbuttons
+                    const activeLengths = lengthButtons
+                        .filter(btn => btn.checked)
+                        .map(btn => btn.id === 'categoriebox1' ? 'short' :
+                                    btn.id === 'categoriebox2' ? 'medium' :
+                                    btn.id === 'categoriebox3' ? 'long' :
+                                    'extreme');
+
+                    let anyVisible = false;
+
                     cards.forEach(card => {
-                        const categories = card.dataset.categories
-                            .split(",")
-                            .map(c => c.trim());
-            
-                        if (selectedCategory === "all") {
-                            card.style.display = "block";
-                        } else if (categories.includes(selectedCategory)) {
-                            card.style.display = "block";
+                        const cardCats = card.dataset.categories.split(',').map(c => c.trim());
+                        let cardLength = null;
+                            if (card.classList.contains('short')) cardLength = 'short';
+                            else if (card.classList.contains('medium')) cardLength = 'medium';
+                            else if (card.classList.contains('long')) cardLength = 'long';
+                            else if (card.classList.contains('extreme')) cardLength = 'extreme';
+
+                        // Karte anzeigen, wenn:
+                        // 1) alle Checkbox-Kategorien in data-categories enthalten sind UND
+                        // 2) die Karte zu einem aktiven Längenbutton gehört (oder kein Längenbutton aktiv)
+                        const matchesCategories = activeCategories.every(cat => cardCats.includes(cat));
+                        const matchesLength = activeLengths.length === 0 || activeLengths.includes(cardLength);
+
+                        if ((activeCategories.length === 0 && activeLengths.length === 0) || (matchesCategories && matchesLength)) {
+                            card.style.display = 'block';
+                            anyVisible = true;
                         } else {
-                            card.style.display = "none";
+                            card.style.display = 'none';
                         }
                     });
+
+                    noToursMessage.style.display = anyVisible ? 'none' : 'block';
                 }
-            
-                filterSelect.addEventListener("change", filterCards);
-                filterCards();
+
+                // Checkboxen und Buttons beobachten
+                checkboxes.forEach(cb => cb.addEventListener('change', updateCards));
+                lengthButtons.forEach(btn => btn.addEventListener('change', updateCards));
+
+                // Clear Button
+                clearBtn.addEventListener("click", () => {
+                    checkboxes.forEach(cb => cb.checked = false);
+                    lengthButtons.forEach(btn => btn.checked = false);
+                    updateCards();
+                });
+
+                // Toggle Filter Form
+                toggleBtn.addEventListener("click", () => {
+                    filterForm.classList.toggle("show");
+                    toggleBtn.setAttribute("aria-expanded", filterForm.classList.contains("show"));
+                });
+
+                // Collapsible Fieldsets
+                document.querySelectorAll(".collapsible legend").forEach(legend => {
+                    legend.addEventListener("click", () => {
+                        const fieldset = legend.parentElement;
+                        fieldset.classList.toggle("open");
+                        const isOpen = fieldset.classList.contains("open");
+                        legend.innerHTML = legend.textContent.replace(/▾|▴/, "") + (isOpen ? " ▴" : " ▾");
+                    });
+                });
+
+                // Initial einmal ausführen
+                updateCards();
+
+                // Jahr automatisch setzen
+                const yearElement = document.getElementById('year');
+                const currentYear = new Date().getFullYear();
+                yearElement.textContent = currentYear;
+
+                // Suche
+                const searchInput = document.getElementById('search');
+                searchInput.addEventListener('input', () => {
+                    const searchTerm = searchInput.value.toLowerCase();
+                    let anyVisible = false;
+
+                    cards.forEach(card => {
+                        const textContent = card.querySelector('.cardheader').textContent.toLowerCase();
+                        if (textContent.includes(searchTerm)) {
+                            card.style.display = 'block';
+                            anyVisible = true;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    noToursMessage.style.display = anyVisible ? 'none' : 'block';
+                });
             });
 
-            document.addEventListener("DOMContentLoaded", () => {
-              const toggleBtn = document.getElementById("toggleFilters");
-              const filterForm = document.getElementById("filterForm");
             
-              toggleBtn.addEventListener("click", () => {
-                const isOpen = !filterForm.hasAttribute("hidden");
-            
-                filterForm.toggleAttribute("hidden");
-                toggleBtn.setAttribute("aria-expanded", String(!isOpen));
-            
-                toggleBtn.innerHTML = isOpen
-                  ? "Kategorien ▾"
-                  : "Kategorien ▴";
-              });
-            });
-
-            document.querySelectorAll(".collapsible legend").forEach(legend => {
-              legend.addEventListener("click", () => {
-                const fieldset = legend.parentElement;
-                fieldset.classList.toggle("open");
-            
-                const isOpen = fieldset.classList.contains("open");
-                legend.innerHTML = legend.textContent.replace(/▾|▴/, "") + (isOpen ? " ▴" : " ▾");
-              });
-            });
-        </script>
+            </script>
     </body>
-
+<!--       _
+       .__(.)< (MEOW)
+        \___)   
+ ~~~~~~~~~~~~~~~~~~-->
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
