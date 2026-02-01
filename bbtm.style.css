@@ -276,9 +276,6 @@ body {
         #filterForm2.show {
         display: block;
         }
-        .pageopening {
-            background-color: rgb(0, 255, 0);
-        }
         .collapsible-content {
           display: none;
           padding-left: 1rem;
@@ -493,4 +490,141 @@ body {
         .socials:hover {
             transform: scale(1.15);
             background-color: #d4d4d4;
+        }
+
+
+
+
+
+
+
+        @media (max-width: 600px) {
+
+        .top {
+            height: auto;
+            padding: 10px;
+        }
+
+        .top > div {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .icon img {
+            width: 120px;
+            height: auto;
+        }
+
+        .headline {
+            margin: 10px 0;
+            font-size: 16pt;
+            text-align: center;
+        }
+
+        .topbtn {
+            flex-direction: column;
+            width: 100%;
+            margin-left: 0;
+        }
+
+        #search,
+        .topbutton,
+        .topbuttonNoAni {
+            width: 90%;
+            margin: 8px auto;
+            padding: 15px;
+        }
+
+        .topbuttonNoAni {
+            justify-content: center;
+        }
+        }
+
+
+        @media (max-width: 600px) {
+
+        .categoriebox {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .categorie1,
+        .categorie2,
+        .categorie3,
+        .categorie4,
+        .categoryFilter {
+            width: 90%;
+            margin: 8px 0;
+            transform: none;
+        }
+
+        .settings {
+            margin: 15px auto;
+            transform: none;
+        }
+        }
+
+
+        #filterForm {
+            position: absolute;
+            left: 745px;
+        }
+
+        @media (max-width: 900px) {
+
+            #filterForm,
+            #filterForm2 {
+                position: fixed;
+                top: 15%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-height: 70vh;
+                overflow-y: auto;
+                z-index: 1200;
+            }
+        }
+
+
+        @media (max-width: 800px) {
+
+        .cardheader {
+            flex-direction: column;
+        }
+
+        .cardimg img {
+            width: 90%;
+            height: auto;
+            margin: 15px auto;
+            display: block;
+        }
+
+        .cardcontent {
+            margin: 15px;
+            padding: 15px;
+        }
+
+        .downloadbtn {
+            display: inline-block;
+            margin-top: 20px;
+            transform: none;
+        }
+        }
+
+
+        @media (max-width: 600px) {
+
+        .textcardcontent {
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        .textcardcontent p,
+        .textcardcontent ul {
+            font-size: 13pt;
+        }
+
+        .headline2 {
+            font-size: 22pt;
+        }
         }
