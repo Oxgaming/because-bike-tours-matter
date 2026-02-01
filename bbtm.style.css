@@ -1,4 +1,8 @@
-body {
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+        body {
             background-color: rgb(203, 220, 248);
             font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             color: ghostwhite;
@@ -500,9 +504,19 @@ body {
 
         @media (max-width: 600px) {
 
+        body {
+            overflow-x:hidden;
+        }
+
+        .cardimg {
+            width: 82%;
+        }
+
         .top {
             height: auto;
             padding: 10px;
+            width: 95%;
+            background-color: rgb(41, 81, 189);
         }
 
         .top > div {
@@ -513,12 +527,6 @@ body {
         .icon img {
             width: 120px;
             height: auto;
-        }
-
-        .headline {
-            margin: 10px 0;
-            font-size: 16pt;
-            text-align: center;
         }
 
         .topbtn {
@@ -540,6 +548,19 @@ body {
         }
         }
 
+        .headline-mobile {
+            display: none;
+            }
+
+            @media (max-width: 768px) {
+            .headline-desktop {
+                display: none;
+            }
+
+            .headline-mobile {
+                display: inline;
+            }
+            }
 
         @media (max-width: 600px) {
 
@@ -585,6 +606,29 @@ body {
             }
         }
 
+        @media (hover: none) {
+            .top:hover {
+                background-color: rgb(41, 81, 189);
+            }
+            .topbutton:hover {
+                background-color: rgb(0, 122, 222);
+                transform: scale(1.00);
+            }
+            .socials {
+                transform: scale(1.6);
+                margin-left: 5%;
+                margin-right: 5%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                transition: none;
+            }
+            .socials:hover {
+                transform: scale(1.6);
+                background-color: aliceblue;
+            }
+
+
+        }
 
         @media (max-width: 800px) {
 
@@ -626,5 +670,27 @@ body {
 
         .headline2 {
             font-size: 22pt;
+        }
+        }
+
+        @media (max-width: 768px) {
+        .headline {
+            margin-left: 20px;
+        }
+
+        #filterForm,
+        #filterForm2 {
+            left: 10px;
+            right: 10px;
+            width: auto;
+        }
+
+        .topbtn {
+            flex-wrap: wrap;
+        }
+
+        .topbutton {
+            width: 100%;
+            margin: 10px 0;
         }
         }
