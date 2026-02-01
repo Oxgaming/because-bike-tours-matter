@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B²TM</title>
+    <link rel="icon" type="image/x-icon" href="icons/icon.biketours.01.ico">
+    <link rel="stylesheet" href="bbtm.style.css">
+</head>
+<body>
+        <header class="top">
+            <div>
+                <div class="icon">
+                    <img src="icons/logo.biketours.03.png" alt="bike" width="175px">
+                </div>
+                <a href="index.html" style="text-decoration: none;"><div class="headline">
+                    <h1>Because Bike Tours Matter</h1>
+                </div></a>
+                <div class="topbtn">
+                    <a style="color: black; text-decoration: none;" href="https://www.youtube.com/channel/UCwYkTOPcR7c8cnejMgSybBQ" class="topbutton" target="_blank">Tutorials</a>
+                    <button class="topbutton"><a style="text-decoration: none; color:black" href="https://www.google.de/maps/" target="_blank">Maps</a></button>
+                    <a style="color: black; text-decoration: none;" href="index.html" class="topbutton">Home</a>
+                </div>
+            </div>
+        </header>
+  
+        <div class="settings" style="width: 63px; margin-right: 17px; transform: translateY(20px);">
+            <button style="background-color: rgb(41, 81, 189); border:none;" id="settings-button">
+                <img id="setimg" alt="cogwheel" src="icons/settings.png" height="50px" style="cursor: pointer;">
+            </button>
+        </div>
+
+        <div id="settings-page">
+            <div class="settings-content">
+                <h2 data-de="Einstellungen" data-en="Settings">Einstellungen</h2>
+                <button id="sound-toggle">Sound</button>
+                <img id="de-flag" class="flag-button" style="border-radius: 200px; margin: 5px; align-self: center;" width="50px" height="50px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Flagge_F%C3%BCrstentum_Reu%C3%9F_%C3%A4ltere_Linie.svg/250px-Flagge_F%C3%BCrstentum_Reu%C3%9F_%C3%A4ltere_Linie.svg.png">
+                <img id="en-flag" class="flag-button" style="border-radius: 200px; margin: 5px; align-self: center;" width="50px" height="50px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_the_United_Kingdom_%282-3%29.svg/1280px-Flag_of_the_United_Kingdom_%282-3%29.svg.png">
+
+                <button id="close-settings" style="color: ghostwhite; font-weight: bold;" data-de="Schließen" data-en="Close">Schließen</button>
+            </div>
+        </div>
+
+        <div class="tours">
+            <h2 class="headline2" id="headline2" data-de="Über uns" data-en="About us">Über uns</h2>
+            <p style="font-size: 15pt; text-shadow: 0 0 5px #000000af;" class="textcardcontent">Willkommen bei Because Bike Tours Matter – wo aus Fahrradtouren unvergessliche Momente in ganz Deutschland werden.</p>
+            <div class="textcard">
+                <!--CARDS-->
+                <div class="textcardcontent">
+                    <h3 data-de="Unsere Idee" data-en="Our Idea">Unsere Idee</h3>
+                    <p data-de="Radfahren ist mehr als nur Fortbewegung. Es ist Freiheit, Entspannung und Entdeckung. Unsere Idee ist es, Fahrradtouren einfach zugänglich zu machen und sie in einem Format bereitzustellen, das jeder nutzen kann – egal ob am PC, Smartphone oder unterwegs ohne Internet."
+                    data-en="Cycling is more than just transportation. It is freedom, relaxation, and discovery. Our idea is to make bike tours easily accessible and provide them in a format that anyone can use – whether on a PC, smartphone, or offline.">
+                        Radfahren ist mehr als nur Fortbewegung. Es ist Freiheit, Entspannung und Entdeckung.
+                        Unsere Idee ist es, Fahrradtouren einfach zugänglich zu machen und sie in einem Format bereitzustellen, 
+                        das jeder nutzen kann – egal ob am PC, Smartphone oder unterwegs ohne Internet.
+                    </p>
+                </div>
+
+                <div class="textcardcontent">
+                    <h3 data-de="Was wir anbieten" data-en="What we offer">Was wir anbieten</h3>
+                    <ul>
+                        <li data-de="Fahrradtouren aus ganz Deutschland" data-en="Bike tours throughout Germany">Fahrradtouren aus ganz Deutschland</li>
+                        <li data-de="Downloadbare KML-Dateien für Google Earth und Offline-Navigation" data-en="Downloadable KML files for Google Earth and offline navigation">Downloadbare KML-Dateien für Google Earth und Offline-Navigation</li>
+                        <li data-de="Perfekt geeignet für Planung zu Hause und Nutzung unterwegs" data-en="Perfect for planning at home and use on the go">Perfekt geeignet für Planung zu Hause und Nutzung unterwegs</li>
+                        <li data-de="Möglichkeit eigene Touren hochzuladen und zu teilen" data-en="Ability to upload and share your own tours">Möglichkeit eigene Touren hochzuladen und zu teilen</li>
+                    </ul>
+                </div>
+
+                <div class="textcardcontent">
+                    <h3 data-de="Für wen ist das gedacht?" data-en="Who is it for?">Für wen ist das gedacht?</h3>
+                    <p data-de="Unsere Plattform richtet sich an:" data-en="Our platform is aimed at:">Unsere Plattform richtet sich an:</p>
+                    <ul>
+                        <li data-de="Freizeitradler" data-en="Leisure cyclists">Freizeitradler</li>
+                        <li data-de="Tourenfahrer" data-en="Tour riders">Tourenfahrer</li>
+                        <li data-de="Bikepacking-Fans" data-en="Bikepacking enthusiasts">Bikepacking-Fans</li>
+                        <li data-de="Alle, die gerne neue Strecken entdecken" data-en="Anyone who enjoys discovering new routes">Alle, die gerne neue Strecken entdecken</li>
+                    </ul>
+                    <p data-de="Egal ob kurze Feierabendrunde oder lange Tagestour – hier wirst du fündig." 
+                    data-en="Whether it's a short evening ride or a long day tour – you'll find it here.">
+                    Egal ob kurze Feierabendrunde oder lange Tagestour – hier wirst du fündig.
+                    </p>
+                </div>
+
+                <div class="textcardcontent">
+                    <h3 data-de="Eigene Touren hochladen" data-en="Upload your own tours">Eigene Touren hochladen</h3><div style="text-align: center;"><a href="https://www.youtube.com/channel/UCwYkTOPcR7c8cnejMgSybBQ" target="_blank" data-de="Anleitung" data-en="Guide" style="box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;background-color: aliceblue; border-radius: 3000px; padding-top: 10px; padding-bottom: 10px; padding-left: 30px; padding-right: 30px; text-align: center;">Anleitung</a></div>
+                    <p data-de="Du hast selbst eine schöne Strecke entdeckt? Bei uns kannst du eigene Fahrradtouren hochladen und sie anderen zur Verfügung stellen. So wächst die Sammlung stetig weiter – von Radfahrern für Radfahrer."
+                    data-en="Have you discovered a great route yourself? You can upload your own bike tours with us and share them with others. This way, the collection continuously grows – from cyclists for cyclists.">
+                    Du hast selbst eine schöne Strecke entdeckt?
+                    Bei uns kannst du eigene Fahrradtouren hochladen und sie anderen zur Verfügung stellen. So wächst die Sammlung stetig weiter – von Radfahrern für Radfahrer.
+                    </p>
+                </div>
+
+                <div class="textcardcontent">
+                    <h3 data-de="Unser Ziel" data-en="Our goal">Unser Ziel</h3>
+                    <p data-de="Unser Ziel ist es, eine zentrale Anlaufstelle für hochwertige Fahrradtouren zu schaffen:" 
+                    data-en="Our goal is to create a central hub for high-quality bike tours:">Unser Ziel ist es, eine zentrale Anlaufstelle für hochwertige Fahrradtouren zu schaffen:</p>
+                    <ul>
+                        <li data-de="übersichtlich" data-en="clear">übersichtlich</li>
+                        <li data-de="kostenlos" data-en="free">kostenlos</li>
+                        <li data-de="gemeinschaftlich" data-en="community-driven">gemeinschaftlich</li>
+                    </ul>
+                    <p data-de="Damit jede Radtour gut geplant starten kann." 
+                    data-en="So that every bike tour can start well planned.">Damit jede Radtour gut geplant starten kann.</p>
+                </div>
+
+                <div class="textcardcontent">
+                    <h3 data-de="Gemeinsam unterwegs" data-en="Together on the road">Gemeinsam unterwegs</h3>
+                    <p data-de="Wir glauben an eine aktive Community, die Wissen teilt und sich gegenseitig inspiriert. Mach mit, lade Touren herunter oder teile deine eigenen – und entdecke Deutschland auf zwei Rädern. 🚲"
+                    data-en="We believe in an active community that shares knowledge and inspires each other. Join in, download tours, or share your own – and discover Germany on two wheels. 🚲">
+                    Wir glauben an eine aktive Community, die Wissen teilt und sich gegenseitig inspiriert.
+                    Mach mit, lade Touren herunter oder teile deine eigenen – und entdecke Deutschland auf zwei Rädern. 🚲
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footercontent">
+                <div class="row">
+                    <div class="footer-col">
+                        <h4 id="copyright">&copy; <span id="year"></span> Because Bike Tours Matter</h4>
+                        <h4 data-de="Allgemein" data-en="General">Allgemein</h4>
+                        <ul>
+                            <li><a href="index.html"><p data-de="Kontakt" data-en="Contact" style="display:inline; margin:0;">Kontakt</p></a></li>
+                            <li><a href="biketours.impressum.html"><p data-de="Impressum" data-en="Imprint" style="display:inline; margin:0;">Impressum</p></a></li>
+                            <li><a href="https://discord.gg/SknncTZwwJ">Discord Channel</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-de="Seiten" data-en="Pages">Seiten</h4>
+                        <ul>
+                            <li><a href="index.html">Homepage</a></li>
+                            <li><a href="index.html"><p data-de="Über uns" data-en="About us" style="display:inline; margin:0;">Über uns</p></a></li>
+                            <li><a href="index.html"><p data-de="Datenschutz" data-en="Data protection" style="display:inline; margin:0;">Datenschutz</p></a></li>
+                            <li><a href="index.html"><p data-de="AGB" data-en="General terms and conditions" style="display:inline; margin:0;">AGB</p></a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-de="Folge uns" data-en="Follow us">Folge uns</h4>
+                        <ul>
+                            <li><a href="https://discord.gg/SknncTZwwJ">Discord Channel</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCwYkTOPcR7c8cnejMgSybBQ">YouTube</a></li>
+                            <li><a href="index.html">TikTok</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+          </footer>
+        <script src="js.index.js"></script>
+</body>
+<!--       _
+       .__(.)< (MEOW)
+        \___)   
+ ~~~~~~~~~~~~~~~~~~-->
+</html>
