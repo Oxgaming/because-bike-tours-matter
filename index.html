@@ -5,430 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B²TM</title>
     <link rel="icon" type="image/x-icon" href="icons/icon.biketours.01.ico">
-    <style>
-        body {
-            background-color: rgb(203, 220, 248);
-            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            color: ghostwhite;
-            overflow-x: hidden;
-        }
-        .top {
-            background-color:rgb(16, 14, 116);
-            height: 150px;
-            width: 100%;
-            border-bottom-color: rgb(41, 81, 189);
-            border-bottom-width: 10px;
-            border-bottom-style: solid;
-            border-radius: 15px;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;      
-        }
-        .top > div {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        @media (hover: none) {
-            .top:hover {
-            background-color: initial;
-            }
-        }
-        .topbutton {
-            background-color: rgb(3, 134, 242);
-            border: none;
-            border-radius: 20px;
-            padding: 25px;
-            padding-left: 40px;
-            padding-right: 40px;
-            margin-left: 20px;
-            margin-right: 25px;
-            margin-bottom: 20px;
-            width: 30%;
-            font-family: inherit;
-            font-size: 14pt;
-            font-weight: bold;
-            box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-        .topbutton:hover {
-            background-color: rgb(0, 122, 222);
-            transform: scale(1.07);
-        }
-        .topbtn {
-            flex-direction: row;
-            display: flex;
-            margin-left: auto;
-            justify-content: flex-end;
-        }
-        .headline {
-            justify-content: flex-start;
-            color:ghostwhite;
-            margin-left: 180px;
-            margin-right: 30px;
-            margin-bottom: 20px;
-            font-size: 20pt;
-            text-shadow: 0 0 10px #FFFFFF;
-        }
-        .icon {
-            margin-left: 15px;
-        }
-        .categoriebox {
-            margin: 20px;
-            justify-content: left;
-            color: black;
-            font-size:small;
-            font-family: inherit;
-            flex-direction: row;
-            display: flex;
-        }
-        .categorie1, .categorie2, .categorie3, .categorie4, .categoryFilter {
-            background-color: rgb(41, 81, 189);
-            margin-right: 23px;
-            margin-top: 2px;
-            padding: 15px;
-            border-radius: 15px;
-            color: ghostwhite;
-            font-size: larger;
-            box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
-            text-align: center;
-            transform: translateY(-18px);
-            margin-left: -18px;
-            border: none;
-        }
-
-        .settings {
-            background-color: rgb(41, 81, 189);
-            margin-top: -15px;
-            padding: 5px;
-            border-radius: 15px;
-            box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
-            transform: translateX(18px);
-            border: none;
-            margin-left: auto;
-            margin-bottom: 12px;
-        }
-        #settings-button {
-            animation: rotateLinear 2s linear infinite;
-            background-color: transparent;
-            border-radius: 400px;
-        }
-        .setimg {
-            transform: translateY(50px);
-            background-color: transparent;
-        }
-        @keyframes rotateLinear {
-            from {
-            transform: rotate(0deg);
-            }
-            to {
-            transform: rotate(360deg);
-            }
-        }
-        .categoryFilter {font-weight: bold; position: relative;}
-        .checkbox-btn {
-            display: block;
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 20px;
-            cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        .checkbox-btn input {
-            opacity: 0;
-            cursor: pointer;
-            height: 0;
-            width: 0;
-        }
-        .checkbox-btn label {
-            cursor: pointer;
-            font-size: 14px;
-        }
-        .checkmark {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 25px;
-            width: 25px;
-            border: 2.5px solid #ffffff;
-            border-radius: 5px;
-            transition: .2s linear;
-        }
-        .checkbox-btn input:checked ~ .checkmark {
-            background-color: transparent;
-        }
-        .checkmark:after {
-            content: "";
-            position: absolute;
-            visibility: hidden;
-            opacity: 0;
-            left: 50%;
-            top: 40%;
-            width: 10px;
-            height: 14px;
-            border: 2px solid #ffffff;
-            filter: drop-shadow(0px 0px 10px #ffffff);
-            border-width: 0 2.5px 2.5px 0;
-            transition: .2s linear;
-            transform: translate(-50%, -50%) rotate(-90deg) scale(0.2);
-        }
-        .checkbox-btn input:checked ~ .checkmark:after {
-            visibility: visible;
-            opacity: 1;
-            transform: translate(-50%, -50%) rotate(0deg) scale(1);
-            animation: pulse 1s ease-in;
-        }
-
-        .checkbox-btn input:checked ~ .checkmark {
-            transform: rotate(45deg);
-            border: none;
-        }
-
-        @keyframes pulse {
-            0%,
-            100% {
-                transform: translate(-50%, -50%) rotate(0deg) scale(1);
-            }
-            50% {
-                transform: translate(-50%, -50%) rotate(0deg) scale(1.6);
-            }
-        }
-        #search {
-            background-color: rgb(3, 134, 242);
-            border: none;
-            border-radius: 20px;
-            padding: 25px;
-            padding-left: 40px;
-            padding-right: 40px;
-            margin-left: 20px;
-            margin-right: 25px;
-            margin-bottom: 20px;
-            width: 30%;
-            font-family: inherit;
-            font-size: 14pt;
-            font-weight: bold;
-            box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
-            transition: background-color 0.3s ease;
-        }
-        #search:hover {
-            background-color: rgb(0, 122, 222);
-        }
-        #search::placeholder {
-        color: rgb(0, 0, 0);
-        }
-        .cardheader {
-            background-color: rgb(16, 14, 116);
-            flex-direction: row;
-            display: flex;
-            border-radius: 35px;
-            margin-bottom: 40px;
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-        }
-        .cardcontent {
-            color:black;
-            background-color: aliceblue;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 50px;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-        }
-        .downloadbtn {
-            background-color: rgb(41, 81, 189);
-            color:aliceblue;
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
-            text-decoration: none;
-            transform:translateY(-30px);
-        }
-
-        #toggleFilters {
-          cursor: pointer;
-        }
-        
-        #filterForm[hidden] {
-          display: none;
-        }
-        #filterForm {
-            position: absolute;
-            width: 300px;
-        }
-        .collapsible-content {
-          display: none;
-          padding-left: 1rem;
-        }
-        
-        .collapsible.open .collapsible-content {
-          display: flex;
-          flex-direction: column;
-          text-align: left;
-          margin-left: 12%;
-        }
-        
-        .collapsible legend {
-          cursor: pointer;
-        }
-
-        .collapsible {
-            background-color: rgb(41, 81, 189);
-            border-radius: 15px;
-            position: relative;
-            color:ghostwhite;
-            font-weight: bold;
-            border: none;
-            box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
-            text-align: center;
-            padding: 10px;
-        }
-        legend {
-            transform: translateY(10px);
-        }
-        #toggleFilters {
-            position: relative;
-            cursor: pointer;
-        }
-        #filterForm {
-            position: absolute;  
-            top: 160px;
-            left: 745px;             
-            margin-top: 5px;     
-            display: none;       
-            z-index: 1000;       
-        }
-        #filterForm.show {
-            display: block;
-        }
-        .noresult {
-            text-align: center;
-            margin-bottom: 400px;
-            transform: scale(1.5);
-            color:black;
-            text-shadow: 0 0 10px #000000;
-        }
-        #clearCategories {
-            --hover-shadows: rgba(0, 0, 0, 0.75) 0px 5px 15px;
-            --accent: rgb(21, 38, 186);
-            font-weight: bold;
-            letter-spacing: 0.1em;
-            border: none;
-            border-radius: 1.1em;
-            background-color: #212121;
-            cursor: pointer;
-            color: ghostwhite;
-            padding: 1em 2em;
-            transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
-                letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s;
-            z-index: 10;
-        }
-
-        #clearCategories:hover {
-            box-shadow: var(--hover-shadows);
-        }
-
-        #clearCategories:active {
-            box-shadow: var(--hover-shadows), var(--accent) 0px 0px 30px 5px;
-            background-color: var(--accent);
-            transform: scale(0.95);
-        }
-        .footer {
-            background: #393a3e;
-            padding: 60px 20px;
-            border-radius: var(--radius-lg);
-            box-shadow: rgb(38, 41, 77) 0px 20px 30px -10px;
-            border-radius: 35px;
-        }
-
-        .footer-col h4 {
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .footer-col ul li a {
-            color: rgb(20, 39, 255);
-            text-shadow: 0 0 10px #9399ffd4;
-            transition: padding-left 0.15s ease, color 0.15s ease;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .footer-col ul li a:hover {
-            color: white;
-            padding-left: 8px;
-        }
-        @keyframes wobbleAnim {
-            0%   { transform: rotate(0deg) translate(0, 0); }
-            15%  { transform: rotate(0.2deg) translate(2px, 1px); }
-            30%  { transform: rotate(-0.2deg) translate(-1px, -2px); }
-            45%  { transform: rotate(0.1deg) translate(0px, 1px); }
-            60%  { transform: rotate(-0.1deg) translate(1px, -1px); }
-            75%  { transform: rotate(0.2deg) translate(-2px, 1px); }
-            90%  { transform: rotate(-0.2deg) translate(-0.5px, 0.5px); }
-            100% { transform: rotate(0deg) translate(0, 0); }
-        }
-        .cardimg {
-            animation: wobbleAnim 10s infinite;
-        }
-        .floating-list li:nth-child(1) { animation-delay: 0s; }
-        .floating-list li:nth-child(2) { animation-delay: 5s; }
-        .floating-list li:nth-child(3) { animation-delay: 10s; }
-
-       @keyframes floatRight {
-        0%, 50%, 100% { transform: translateX(0); }
-        25% { transform: translateX(5px); }
-        75% { transform: translateX(5px); }
-        }
-        .floataniol li {
-            animation: floatRight 5s infinite;
-            position: relative;
-        }
-        #settings-page {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-
-            background: rgba(0, 0, 0, 0.6); 
-            z-index: 1100;
-
-            display: none; 
-            justify-content: center;
-            align-items: center;
-        }
-
-        .settings-content {
-            background: rgb(41, 81, 189);
-            padding: 20px;
-            border-radius: 35px;
-            min-width: 300px;
-            flex-direction: column;
-            display: flex;
-            text-align: center;
-            margin: 10px;
-        }
-        .settings-content button {
-            background-color:rgb(23, 16, 158);
-            border:none;
-            border-radius: 55px;
-            box-shadow: rgb(38, 41, 77) 0px 4px 6px -2px;
-            padding: 10px;
-        }
-
-        #sound-toggle {
-            color: ghostwhite;
-            font-weight: bold;
-        }
-
-        .flag-button {
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: border 0.3s;
-            }
-        .flag-button.active {
-            border: 8px solid green;
-        }
-    </style>
+    <link rel="stylesheet" href="bbtm.style.css">
 </head>
 <body>
         <header class="top">
@@ -445,7 +22,14 @@
                         data-en="Search..."
                         placeholder="Suchen...">   
                     <button class="topbutton"><a style="text-decoration: none; color:black" href="https://www.google.de/maps/" target="_blank">Maps</a></button>
-                    <button  class="topbutton">unnamed</button>
+                    <div class="topbuttonNoAni" style="display: flex; flex-direction: row; transition: none;">
+                        <a target="_blank" class="socials" href="https://www.youtube.com/channel/UCwYkTOPcR7c8cnejMgSybBQ">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/018/930/572/small/youtube-logo-youtube-icon-transparent-free-png.png" alt="youtube" height="40px" width="40px">
+                        </a>
+                        <a target="_blank" class="socials" href="index.html">
+                            <img src="https://cdn.pixabay.com/photo/2021/06/15/12/28/tiktok-6338432_1280.png" alt="tiktok" height="30px" width="30px" style="margin-top: 4px; margin-left: 4px; ">
+                        </a>
+                    </div>
                 </div>
             </div>
         </header>
@@ -596,6 +180,16 @@
                      </fieldset>
                   </div>
                 </form>
+                <button type="button" id="toggleFilters" aria-expanded="false" class="categoryFilter" data-de="Seiten ▾" data-en="Pages ▾">
+                Seiten ▾
+                </button>
+
+                <form id="filterForm2" class="hidden" class="pageopening">
+                <ul>
+                    <li><a href="index.html">Homepage</a></li>
+                    <li><a href="about.html" data-de="Über uns" data-en="About us">Über uns</a></li>
+                </ul>
+                </form>
                 <div class="settings">
                     <button style="background-color: rgb(41, 81, 189); border:none;" id="settings-button">
                         <img id="setimg" alt="cogwheel" src="icons/settings.png" height="50px" style="cursor: pointer;">
@@ -607,12 +201,12 @@
 
                                             <div id="settings-page">
                                                 <div class="settings-content">
-                                                    <h2>Einstellungen</h2>
+                                                    <h2 data-de="Einstellungen" data-en="Settings">Einstellungen</h2>
                                                     <button id="sound-toggle">Sound</button>
                                                     <img id="de-flag" class="flag-button" style="border-radius: 200px; margin: 5px; align-self: center;" width="50px" height="50px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Flagge_F%C3%BCrstentum_Reu%C3%9F_%C3%A4ltere_Linie.svg/250px-Flagge_F%C3%BCrstentum_Reu%C3%9F_%C3%A4ltere_Linie.svg.png">
                                                     <img id="en-flag" class="flag-button" style="border-radius: 200px; margin: 5px; align-self: center;" width="50px" height="50px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_the_United_Kingdom_%282-3%29.svg/1280px-Flag_of_the_United_Kingdom_%282-3%29.svg.png">
 
-                                                    <button id="close-settings" style="color: ghostwhite; font-weight: bold;">Schließen</button>
+                                                    <button id="close-settings" style="color: ghostwhite; font-weight: bold;" data-de="Schließen" data-en="Close">Schließen</button>
                                                 </div>
                                             </div>
         
@@ -851,7 +445,7 @@
                                         <h4 data-de="Seiten" data-en="Pages">Seiten</h4>
                                         <ul>
                                             <li><a href="index.html">Homepage</a></li>
-                                            <li><a href="index.html"><p data-de="Über uns" data-en="About us" style="display:inline; margin:0;">Über uns</p></a></li>
+                                            <li><a href="about.html"><p data-de="Über uns" data-en="About us" style="display:inline; margin:0;">Über uns</p></a></li>
                                             <li><a href="index.html"><p data-de="Datenschutz" data-en="Data protection" style="display:inline; margin:0;">Datenschutz</p></a></li>
                                             <li><a href="index.html"><p data-de="AGB" data-en="General terms and conditions" style="display:inline; margin:0;">AGB</p></a></li>
 
@@ -861,7 +455,8 @@
                                         <h4 data-de="Folge uns" data-en="Follow us">Folge uns</h4>
                                         <ul>
                                             <li><a href="https://discord.gg/SknncTZwwJ">Discord Channel</a></li>
-                                            <li><a href="index.html">YouTube</a></li>
+                                            <li><a href="https://www.youtube.com/channel/UCwYkTOPcR7c8cnejMgSybBQ">YouTube</a></li>
+                                            <li><a href="index.html">TikTok</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -912,260 +507,7 @@
                                                                                                 Schleswig-Holstein = swhs
                                                                                                 Thüringen = thue
                                                                                                 -->
-       <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const checkboxes = document.querySelectorAll('#filterForm input[type="checkbox"]');
-                const cards = document.querySelectorAll('.card');
-                const noToursMessage = document.getElementById('noToursMessage');
-                const clearBtn = document.getElementById("clearCategories");
-                const toggleBtn = document.getElementById("toggleFilters");
-                const filterForm = document.getElementById("filterForm");
-
-                const lengthButtons = [
-                    document.getElementById('categoriebox1'), // short
-                    document.getElementById('categoriebox2'), // medium
-                    document.getElementById('categoriebox3'), // long
-                    document.getElementById('categoriebox4')  // extreme
-                ];
-
-                function updateCards() {
-                    // Alle aktiven Kategorien aus den Filter-Checkboxen
-                    const activeCategories = Array.from(checkboxes)
-                        .filter(cb => cb.checked)
-                        .map(cb => cb.value);
-
-                    // Aktive Längenbuttons
-                    const activeLengths = lengthButtons
-                        .filter(btn => btn.checked)
-                        .map(btn => btn.id === 'categoriebox1' ? 'short' :
-                                    btn.id === 'categoriebox2' ? 'medium' :
-                                    btn.id === 'categoriebox3' ? 'long' :
-                                    'extreme');
-
-                    let anyVisible = false;
-
-                    cards.forEach(card => {
-                        const cardCats = card.dataset.categories.split(',').map(c => c.trim());
-                        let cardLength = null;
-                            if (card.classList.contains('short')) cardLength = 'short';
-                            else if (card.classList.contains('medium')) cardLength = 'medium';
-                            else if (card.classList.contains('long')) cardLength = 'long';
-                            else if (card.classList.contains('extreme')) cardLength = 'extreme';
-
-                        // Karte anzeigen, wenn:
-                        // 1) alle Checkbox-Kategorien in data-categories enthalten sind UND
-                        // 2) die Karte zu einem aktiven Längenbutton gehört (oder kein Längenbutton aktiv)
-                        const matchesCategories = activeCategories.every(cat => cardCats.includes(cat));
-                        const matchesLength = activeLengths.length === 0 || activeLengths.includes(cardLength);
-
-                        if ((activeCategories.length === 0 && activeLengths.length === 0) || (matchesCategories && matchesLength)) {
-                            card.style.display = 'block';
-                            anyVisible = true;
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-
-                    noToursMessage.style.display = anyVisible ? 'none' : 'block';
-                }
-
-                // Checkboxen und Buttons beobachten
-                checkboxes.forEach(cb => cb.addEventListener('change', updateCards));
-                lengthButtons.forEach(btn => btn.addEventListener('change', updateCards));
-
-                // Clear Button
-                clearBtn.addEventListener("click", () => {
-                    checkboxes.forEach(cb => cb.checked = false);
-                    lengthButtons.forEach(btn => btn.checked = false);
-                    updateCards();
-                });
-
-                // Toggle Filter Form
-                toggleBtn.addEventListener("click", () => {
-                    filterForm.classList.toggle("show");
-                    toggleBtn.setAttribute("aria-expanded", filterForm.classList.contains("show"));
-                });
-
-                // Collapsible Fieldsets
-                document.querySelectorAll(".collapsible legend").forEach(legend => {
-                    legend.addEventListener("click", () => {
-                        const fieldset = legend.parentElement;
-                        fieldset.classList.toggle("open");
-                        const isOpen = fieldset.classList.contains("open");
-                        legend.innerHTML = legend.textContent.replace(/▾|▴/, "") + (isOpen ? " ▴" : " ▾");
-                    });
-                });
-
-                // Initial einmal ausführen
-                updateCards();
-
-                // Jahr automatisch setzen
-                const yearElement = document.getElementById('year');
-                const currentYear = new Date().getFullYear();
-                yearElement.textContent = currentYear;
-
-                // Suche
-                const searchInput = document.getElementById('search');
-                searchInput.addEventListener('input', () => {
-                    const searchTerm = searchInput.value.toLowerCase();
-                    let anyVisible = false;
-
-                    cards.forEach(card => {
-                        const textContent = card.querySelector('.cardheader').textContent.toLowerCase();
-                        if (textContent.includes(searchTerm)) {
-                            card.style.display = 'block';
-                            anyVisible = true;
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-
-                    noToursMessage.style.display = anyVisible ? 'none' : 'block';
-                });
-            });
-
-            (() => {
-
-            const STORAGE_KEY = "soundsEnabled";
-
-            const sounds = [
-                "audio/bell.01.mp3",
-                "audio/bell.02.mp3",
-                "audio/bell.03.mp3",
-                "audio/bell.04.mp3",
-                "audio/bell.05.mp3"
-            ];
-
-            let soundsEnabled =
-                localStorage.getItem(STORAGE_KEY) !== "false";
-
-            function playRandomSound() {
-                if (!soundsEnabled) return;
-
-                const audio = new Audio(
-                sounds[Math.floor(Math.random() * sounds.length)]
-                );
-                audio.volume = 0.4;
-                audio.play().catch(() => {});
-            }
-
-            function toggleSounds(btn) {
-                soundsEnabled = !soundsEnabled;
-                localStorage.setItem(STORAGE_KEY, soundsEnabled);
-                btn.textContent = soundsEnabled ? "🔊 Sound an" : "🔇 Sound aus";
-            }
-
-            // Alle Sound-Buttons automatisch finden
-            document.addEventListener("click", (e) => {
-
-                // sound-button-1, sound-button-2, ...
-                if (e.target.id && e.target.id.startsWith("sound-button-")) {
-                playRandomSound();
-                }
-
-                if (e.target.id === "sound-toggle") {
-                toggleSounds(e.target);
-                }
-
-            });
-
-            })();
-
-            const settingsButton = document.getElementById("settings-button");
-                const settingsPage = document.getElementById("settings-page");
-                const closeButton = document.getElementById("close-settings");
-
-                settingsButton.addEventListener("click", () => {
-                    settingsPage.style.display = "flex";
-                });
-
-                closeButton.addEventListener("click", () => {
-                    settingsPage.style.display = "none";
-                });
-
-                const deFlag = document.getElementById("de-flag");
-                const enFlag = document.getElementById("en-flag");
-
-                function setLanguage(lang) {
-                if (lang === "de") {
-                    deFlag.classList.add("active");
-                    enFlag.classList.remove("active");
-                } else {
-                    enFlag.classList.add("active");
-                    deFlag.classList.remove("active");
-                }
-
-                // Speichern im localStorage
-                localStorage.setItem("selectedLanguage", lang);
-
-                // Optional: Texte übersetzen
-                translatePage(lang);
-                }
-
-                // Event Listener
-                deFlag.addEventListener("click", () => setLanguage("de"));
-                enFlag.addEventListener("click", () => setLanguage("en"));
-
-                // Beim Laden die gespeicherte Sprache übernehmen
-                const savedLang = localStorage.getItem("selectedLanguage") || "de";
-                setLanguage(savedLang);
-
-                // Beispiel-Funktion zum Übersetzen (kann dein vorheriges data-Attribut-System nutzen)
-                function translatePage(lang) {
-                document.querySelectorAll("[data-en]").forEach(el => {
-                    el.textContent = lang === "en" ? el.getAttribute("data-en") : el.getAttribute("data-de");
-                });
-                }
-
-                const translations = {
-                    "de": {
-                        "Länge": "Length",
-                        "Höhenmeter": "Elevation",
-                        "Rückfahrt": "Return",
-                        "Checkpoints": "Checkpoints",
-                        "Download": "Download"
-                    },
-                    "en": {
-                        "Länge": "Länge",
-                        "Höhenmeter": "Höhenmeter",
-                        "Rückfahrt": "Rückfahrt",
-                        "Checkpoints": "Checkpoints",
-                        "Download": "Download"
-                    }
-                };
-
-                function translateTextWords(lang) {
-                    const allTextNodes = document.querySelectorAll(".cardcontent, .cardheader, button, label");
-                    
-                    allTextNodes.forEach(el => {
-                        Object.keys(translations[lang]).forEach(word => {
-                            const regex = new RegExp(`\\b${word}\\b`, "g");
-                            el.innerHTML = el.innerHTML.replace(regex, translations[lang][word]);
-                        });
-                    });
-                }
-
-                function setLanguage(lang) {
-                deFlag.classList.toggle("active", lang === "de");
-                enFlag.classList.toggle("active", lang === "en");
-
-                localStorage.setItem("selectedLanguage", lang);
-
-                translatePage(lang);      // bestehende Übersetzung via data-en
-                translateTextWords(lang); // Übersetzung der festen Wörter
-            }
-
-            function translatePage(lang) {
-                // Übersetze alle Elemente mit data-en / data-de
-                document.querySelectorAll("[data-en]").forEach(el => {
-                    if (el.tagName === "INPUT" && el.hasAttribute("placeholder")) {
-                        el.placeholder = lang === "en" ? el.getAttribute("data-en") : el.getAttribute("data-de");
-                    } else {
-                        el.textContent = lang === "en" ? el.getAttribute("data-en") : el.getAttribute("data-de");
-                    }
-                });
-            }
-            </script>
+    <script src="js.index.js"></script>
     </body>
 <!--       _
        .__(.)< (MEOW)
