@@ -630,12 +630,13 @@
                 transform: scale(1.00);
             }
             .socials {
-                transform: scale(1.6);
+                transform: scale(1.15);
                 margin-left: 5%;
                 margin-right: 5%;
                 margin-top: 10px;
                 margin-bottom: 10px;
                 transition: none;
+                width: 20%;
             }
             .socials:hover {
                 transform: scale(1.6);
