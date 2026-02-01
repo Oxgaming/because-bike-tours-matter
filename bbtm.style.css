@@ -548,6 +548,10 @@
             width: 100%;
             margin-left: 0;
         }
+        .topbtn a {
+            width: 92%;
+            text-align: center;
+        }
 
         #search,
         .topbutton,
@@ -737,4 +741,3 @@
             margin: 10px 0;
         }
         }
-
