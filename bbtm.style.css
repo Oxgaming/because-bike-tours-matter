@@ -626,7 +626,7 @@
                 transform: scale(1.6);
                 background-color: aliceblue;
             }
-            img {
+            noresult img {
                 width: 100%;
             }
 
@@ -696,4 +696,5 @@
             margin: 10px 0;
         }
         }
+
 
